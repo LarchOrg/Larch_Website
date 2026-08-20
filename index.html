@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LarchERP - An Automotive Manufacturing Software</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+ 
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="cur-r"></div>
+ 
+<!-- ── NAV ── -->
+<nav id="nav">
+  <div class="nav-logo">
+    <a href="index.html">
+        <img src="images/LarchLogo.png" alt="Larch Technologies">
+    </a>
+</div>
+  <ul class="nav-links">
+    <li><a href="#features">Adopting IATF</a></li>
+    <li><a href="#cases">Automotive 5.0</a></li>
+    <li><a href="#features">Core Tools</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- ── HERO SLIDER ── -->
+<div class="hero">
+  <div class="hero-slides" id="hslides">
+ 
+    <div class="hslide active">
+      <img src="images\Prod.jpeg" alt="Manufacturing ERP">
+      <div class="hero-content">
+        <div class="hero-badge">Manufacturing ERP · Since 2011</div>
+        <h1>Get your ERP with<br><em>Effective Production</em><br>Management</h1>
+        <p class="hero-sub">Larch Technologies delivers intelligent ERP solutions for Automotive, Manufacturing, Logistics and Retail — unifying every operation on one powerful platform.</p>
+        <div class="hero-btns">
+          <button class="btn-white" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features</button>
+          <button class="btn-outline-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+        </div>
+      </div>
+    </div>
+    <div class="hslide active">
+      <img src="images\newdatadecision1.jpeg" alt="Manufacturing ERP">
+      <div class="hero-content">
+        <div class="hero-badge">Manufacturing ERP · Since 2011</div>
+        <h1>Get your ERP with<br><em>Effective Production</em><br>Management</h1>
+        <p class="hero-sub">Larch Technologies delivers intelligent ERP solutions for Automotive, Manufacturing, Logistics and Retail — unifying every operation on one powerful platform.</p>
+        <div class="hero-btns">
+          <button class="btn-white" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features</button>
+          <button class="btn-outline-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="hslide">
+      <img src="images/pexels-lex-ger-2021617-4294075.jpg" alt="Machine Tracking">
+      <div class="hero-content">
+        <div class="hero-badge">Real-Time Visibility · MES</div>
+        <h1>Track Operator Availability<br>& <em>Machine Status</em><br>in Real Time</h1>
+        <p class="hero-sub">Our Manufacturing Execution System validates Machine, Manpower and Overall Equipment Efficiency (OEE) the right way — live, accurate, and actionable.</p>
+        <div class="hero-btns">
+          <button class="btn-white" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">See MES Features</button>
+          <button class="btn-outline-w" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">Case Studies</button>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="hslide">
+      <img src="images/photo-1553413077-190dd305871c.jpg" alt="Warehouse Barcode">
+      <div class="hero-content">
+        <div class="hero-badge">Warehouse Management · WMS</div>
+        <h1>Realtime Barcode Inventory<br>Keeps You <em>Relaxed</em><br>on the Shop Floor</h1>
+        <p class="hero-sub">Complete control over warehouse movement, inventory tracking, and supply chain management — integrated seamlessly into your ERP ecosystem.</p>
+        <div class="hero-btns">
+          <button class="btn-white" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})">View Catalogue</button>
+          <button class="btn-outline-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Talk to Us</button>
+        </div>
+      </div>
+    </div>
+    <div class="hslide">
+     <img src="images/pexels-asphotography-106344.jpg" alt="ERP Dashboard">
+     <div class="hero-content">
+       <div class="hero-badge">Real-Time Analytics · ERP Dashboard</div>
+       <h1>Monitor Your Business<br>with <em>Live Data</em><br>and Smart Insights</h1>
+       <p class="hero-sub">Larch ERP gives you real-time dashboards and analytics — track performance, measure OEE, and make decisions faster than ever before.</p>
+       <div class="hero-btns">
+         <button class="btn-white" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features</button>
+         <button class="btn-outline-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+    </div>
+  </div>
+</div>
+
+<div class="hslide">
+  <img src="images/pexels-pixabay-236705.png" alt="Automotive Factory">
+  <div class="hero-content">
+    <div class="hero-badge">Automotive Manufacturing · Industry 4.0</div>
+    <h1>Power Your Factory<br>with <em>Smart Automation</em><br>and ERP Control</h1>
+    <p class="hero-sub">From robotic assembly lines to real-time production tracking — Larch ERP integrates seamlessly with modern automotive manufacturing operations.</p>
+    <div class="hero-btns">
+      <button class="btn-white" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">See MES Features</button>
+      <button class="btn-outline-w" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">Case Studies</button>
+    </div>
+  </div>
+</div>
+
+<div class="hslide">
+  <img src="images/pexels-pixabay-236705.png" alt="Industrial Factory">
+  <div class="hero-content">
+    <div class="hero-badge">Industrial Manufacturing · Shop Floor</div>
+    <h1>Take Full Control<br>of Your <em>Shop Floor</em><br>Operations</h1>
+    <p class="hero-sub">Larch ERP gives complete visibility across your entire factory — from raw materials to finished goods — all managed from one powerful platform.</p>
+    <div class="hero-btns">
+      <button class="btn-white" onclick="document.getElementById('catalogue').scrollIntoView({behavior:'smooth'})">View Catalogue</button>
+      <button class="btn-outline-w" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Talk to Us</button>
+    </div>
+  </div>
+</div>
+ 
+  </div>
+  <div class="hero-dots" id="hdots">
+    <div class="hdot on" onclick="goH(0)"></div>
+    <div class="hdot" onclick="goH(1)"></div>
+    <div class="hdot" onclick="goH(2)"></div>
+    <div class="hdot" onclick="goH(3)"></div>
+    <div class="hdot" onclick="goH(4)"></div>
+    <div class="hdot" onclick="goH(5)"></div>
+  </div>
+  <div class="hero-arrows">
+    <button class="harr" onclick="prevH()">&#8592;</button>
+    <button class="harr" onclick="nextH()">&#8594;</button>
+  </div>
+  <div class="hero-prog"><div class="hero-prog-fill" id="hpf"></div></div>
+</div>
+ 
+<!-- ── "BE WITH LARCH" MARQUEE ── -->
+<div class="be-with">
+  <div class="bw-inner">
+    <div class="bw-track">
+      <div class="bw-item"><span class="bw-dot"></span>Get your ERP with effective Maintenance, production order and workforce management tool<em>.... Be With Larch</em></div>
+      <div class="bw-item"><span class="bw-dot"></span>Have you tracked your Operator's availability and Machine status before production planning<em>.... Be With Larch</em></div>
+      <div class="bw-item"><span class="bw-dot"></span>Have you ever validate your Machine, Manpower and Overall Equipment Efficiency (OEE) correctly<em>.... Be With Larch</em></div>
+      <div class="bw-item"><span class="bw-dot"></span>Realtime Barcode Inventory movement helps you to be relaxed in Shop Floor<em>.... Be With Larch</em></div>
+      <!-- duplicate -->
+      <div class="bw-item"><span class="bw-dot"></span>Get your ERP with effective Maintenance, production order and workforce management tool<em>.... Be With Larch</em></div>
+      <div class="bw-item"><span class="bw-dot"></span>Have you tracked your Operator's availability and Machine status before production planning<em>.... Be With Larch</em></div>
+      <div class="bw-item"><span class="bw-dot"></span>Have you ever validate your Machine, Manpower and Overall Equipment Efficiency (OEE) correctly<em>.... Be With Larch</em></div>
+      <div class="bw-item"><span class="bw-dot"></span>Realtime Barcode Inventory movement helps you to be relaxed in Shop Floor<em>.... Be With Larch</em></div>
+    </div>
+  </div>
+</div>
+ 
+<!-- ── STATS ── -->
+<div class="stats-row">
+  <div class="stat-cell"><span class="stat-num" data-t="12">0</span><div class="stat-lbl">Years in Business</div></div>
+  <div class="stat-cell"><span class="stat-num" data-t="38">0</span><div class="stat-lbl">Happy Clients</div></div>
+  <div class="stat-cell"><span class="stat-num" data-t="15">0</span><div class="stat-lbl">ERP Modules</div></div>
+  <div class="stat-cell"><span class="stat-num" data-t="4">0</span><div class="stat-lbl">Industry Verticals</div></div>
+</div>
+ 
+<!-- ── ABOUT / INTRO ── -->
+<section class="intro-sec" id="about">
+  <div class="intro-layout">
+    <div class="intro-img rev">
+      <img src="images/photo-1600880292203-757bb62b4baf.jpg" alt="Larch Team">
+      <div class="intro-img-badge">
+        <div class="big">2011</div>
+        <div class="sm">Est. Chennai, India</div>
+      </div>
+    </div>
+    <div class="intro-text">
+      <div class="sec-eyebrow rev">About Larch Technologies</div>
+      <h2 class="sec-h rev">Innovative Solutions<br>for <em>Automotive Manufacturing Industry</em></h2>
+      <p class="sec-sub rev">Larch Technologies is an Information Technology service provider delivering solutions for IT-enabled industries since 2011. Headquartered in Chennai, India, we help customers find innovative solutions for IT needs and maintain smooth operations.</p>
+      <p class="sec-sub rev" style="margin-top:1rem">We support industries including Automotive, Manufacturing, Logistics and Retail using a Global Delivery Model that enables offshore collaboration and on-time project delivery.</p>
+      <div class="intro-pills rev" style="margin-top:1.5rem">
+        <span class="pill">Injection Molding</span>
+        <span class="pill">Wiring Harness</span>
+        <span class="pill">PCB Assembly</span>
+        <span class="pill">Sun Roofing</span>
+        <span class="pill">Cable Assembly</span>
+        <span class="pill">Safety Systems</span>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap" class="rev">
+        <button class="btn-green" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Our Products &#8594;</button>
+        <button class="btn-green-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── Adopting IATF ── -->
+<section class="feat-sec" id="features">
+  <div class="feat-header">
+    <div class="sec-eyebrow rev">Adopting IATF</div>
+    <h2 class="sec-h rev">One Integrated Platform for<br><em>An Automotive Manufacturers</em></h2>
+    <p class="sec-sub rev">Purpose-built modules engineered around the unique demands of Indian manufacturing and industrial operations — all in one integrated platform.</p>
+  </div>
+  <div class="feat-grid">
+ 
+    <div class="feat-card rev">
+      <img class="feat-img" src="images/photo-1565514158740-064f34bd6cfd.jpg" alt="MES">
+      <div class="feat-body">
+        <div class="feat-tag">&#9654; JIT(Just in Time)</div>
+        <h3>5S Inventory / SCM</h3>
+        <p>5S Inventory & Supply Chain Management solution is designed to streamline manufacturing operations by combining 5S principles with advanced inventory control and end-to-end supply chain visibility. It enables organizations to maintain structured, efficient, and traceable workflows across the shop floor and supply chain.</p>
+        <div class="feat-actions">
+          <a href="feature.html?id=0" class="feat-link">Learn More &#8594;</a>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="feat-card rev rd1">
+      <img class="feat-img" src="images/photo-1521737604893-d14cc237f11d.jpg" alt="HRMS">
+      <div class="feat-body">
+        <div class="feat-tag">&#9654; TPM(Total Productive Maintenance)</div>
+        <h3>Maintenance / OEE</h3>
+        <p>Plant Maintenance & OEE solution is an end-to-end asset and equipment management platform designed to maximize machine uptime, improve reliability, and enhance overall equipment effectiveness (OEE). It enables organizations to shift from reactive maintenance to predictive and data-driven strategies.</p>
+        <div class="feat-actions">
+          <a href="feature.html?id=1" class="feat-link">Learn More &#8594;</a>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="feat-card rev rd2">
+      <img class="feat-img" src="images/photo-1553413077-190dd305871c.jpg" alt="WMS">
+      <div class="feat-body">
+        <div class="feat-tag">&#9654; APS(Advanced Planning and Scheduling)</div>
+        <h3>Production Planning Control / MRP</h3>
+        <p>Production Planning & Control solution enables manufacturers to efficiently plan, schedule, and execute production using advanced MRP and APS capabilities. It ensures optimal utilization of resources, improved delivery performance, and real-time visibility across the entire production lifecycle.</p>
+        <div class="feat-actions">
+          <a href="feature.html?id=2" class="feat-link">Learn More &#8594;</a>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="feat-card rev rd1">
+      <img class="feat-img" src="images/photo-1504868584819-f8e8b4b6d7e3.jpg" alt="QMS">
+      <div class="feat-body">
+        <div class="feat-tag">&#9654; QMS(Quality Management System)</div>
+        <h3>Manufacturing Execution System / Quality IATF</h3>
+        <p>A QMS is a complete digital quality management platform designed to ensure IATF 16949 compliance and streamline PPAP processes. It integrates supplier quality, SPC, audits, and compliance into one unified system.</p>
+        <div class="feat-actions">
+          <a href="feature.html?id=3" class="feat-link">Learn More &#8594;</a>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="feat-card rev rd2">
+      <img class="feat-img" src="images/photo-1512941937669-90a1b58e7e9c.jpg" alt="Mobility">
+      <div class="feat-body">
+        <div class="feat-tag">&#9654; FMEA(Failure Modes and Effects Analysis)</div>
+        <h3>MSA / SPC / Control Plan</h3>
+        <p>Quality Intelligence Platform integrates MSA, SPC, and Control Plan into a single system to ensure measurement accuracy, process control, and IATF 16949 compliance across the shop floor.</p>
+        <div class="feat-actions">
+          <a href="feature.html?id=4" class="feat-link">Learn More &#8594;</a>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="feat-card rev rd3">
+      <img class="feat-img" src="images/pexels-lex-ger-2021617-4294075.jpg" alt="SCM">
+      <div class="feat-body">
+        <div class="feat-tag">&#9654; End to End Traceability</div>
+        <h3>Traceability and Serialization</h3>
+        <p>Traceability & Serialization module provides complete end-to-end visibility across the entire supply chain — from raw materials to finished goods delivery. It ensures full compliance, quality integration, and real-time production tracking.</p>
+        <div class="feat-actions">
+          <a href="feature.html?id=5" class="feat-link">Learn More &#8594;</a>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ── CASE STUDIES ── -->
+<section class="cases-sec" id="cases">
+  <div class="cases-header">
+    <div>
+      <div class="sec-eyebrow rev">Automotive 5.0</div>
+      <h2 class="sec-h rev">Real Challenges.<br><em>Proven Results.</em></h2>
+    </div>
+    <button class="btn-outline-w rev" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">View All Cases</button>
+  </div>
+  <div class="cases-grid">
+
+    <div class="case-card rev">
+      <img class="case-img" src="images/pexels-kateryna-babaieva-1423213-2760241.jpg" alt="Automotive">
+      <div class="case-body">
+        <div class="case-ind">Automotive Manufacturing</div>
+        <h3>Multi-Plant Production Unification in Automotive Manufacturing</h3>
+        <p>A Tier-1 supplier across 5 plants faced fragmented data, inconsistent processes and no real-time visibility across operations.</p>
+        <div class="case-metrics">
+          <div class="cmet"><div class="cmet-v">20%</div><div class="cmet-l">Better OEE</div></div>
+          <div class="cmet"><div class="cmet-v">30%</div><div class="cmet-l">Less Defects</div></div>
+          <div class="cmet"><div class="cmet-v">18%</div><div class="cmet-l">Less Downtime</div></div>
+        </div>
+        <div class="case-actions">
+          <a class="read-more-btn" href="case.html?id=0">Read More &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card rev rd1">
+      <img class="case-img" src="images/pexels-lex-ger-2021617-4294075.jpg" alt="Logistics">
+      <div class="case-body">
+        <div class="case-ind">Logistics &amp; Distribution</div>
+        <h3>Real-Time Visibility Across Multi-State Operations</h3>
+        <p>A logistics company needed centralized procurement, GST automation, and unified operations across state borders.</p>
+        <div class="case-metrics">
+          <div class="cmet"><div class="cmet-v">60%</div><div class="cmet-l">Less Manual Work</div></div>
+          <div class="cmet"><div class="cmet-v">4</div><div class="cmet-l">States Unified</div></div>
+          <div class="cmet"><div class="cmet-v">100%</div><div class="cmet-l">GST Automated</div></div>
+        </div>
+        <div class="case-actions">
+          <a class="read-more-btn" href="case.html?id=1">Read More &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card rev rd2">
+      <img class="case-img" src="images/photo-1565514158740-064f34bd6cfd.jpg" alt="Manufacturing">
+      <div class="case-body">
+        <div class="case-ind">Industrial Manufacturing</div>
+        <h3>OEE Validation &amp; Downtime Reduction with MES</h3>
+        <p>A precision manufacturer deployed Larch MES to validate machine efficiency and operator availability in real time.</p>
+        <div class="case-metrics">
+          <div class="cmet"><div class="cmet-v">29%</div><div class="cmet-l">Fewer Breakdowns</div></div>
+          <div class="cmet"><div class="cmet-v">OEE</div><div class="cmet-l">Live Validated</div></div>
+          <div class="cmet"><div class="cmet-v">100%</div><div class="cmet-l">Traceability</div></div>
+        </div>
+        <div class="case-actions">
+          <a class="read-more-btn" href="case.html?id=2">Read More &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card rev rd3">
+      <img class="case-img" src="images/photo-1556742049-0cfed4f6a45d.jpg" alt="Retail">
+      <div class="case-body">
+        <div class="case-ind">Retail &amp; FMCG</div>
+        <h3>Scaling Inventory Without Scaling Headcount</h3>
+        <p>A retail chain with 12 outlets implemented WMS and barcode scanning — eliminating stockouts and overstock situations.</p>
+        <div class="case-metrics">
+          <div class="cmet"><div class="cmet-v">45%</div><div class="cmet-l">Less Variance</div></div>
+          <div class="cmet"><div class="cmet-v">12</div><div class="cmet-l">Outlets Unified</div></div>
+          <div class="cmet"><div class="cmet-v">3hr</div><div class="cmet-l">Saved Daily</div></div>
+        </div>
+        <div class="case-actions">
+          <a class="read-more-btn" href="case.html?id=3">Read More &#8594;</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CASE STUDY POPUP ── -->
+<div class="case-overlay" id="caseOverlay" onclick="closeCase()"></div>
+<div class="case-popup" id="casePopup">
+  <button class="case-close" onclick="closeCase()">&#10005;</button>
+  <div class="case-popup-img-wrap">
+    <img class="case-popup-img" id="popupImg" src="" alt="">
+    <div class="case-popup-ind" id="popupInd"></div>
+  </div>
+  <div class="case-popup-body">
+    <h2 class="case-popup-title" id="popupTitle"></h2>
+    <div class="case-popup-metrics" id="popupMetrics"></div>
+    <div class="case-popup-content" id="popupContent"></div>
+    <a class="case-download-btn" id="popupDownload" href="#" download>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Case Study PDF
+    </a>
+  </div>
+</div>
+ 
+<!-- ── BUSINESS CATALOGUE ── -->
+<section class="cat-sec" id="catalogue">
+  <div class="cat-layout">
+    <div>
+      <div class="sec-eyebrow rev">Business Catalogue</div>
+      <h2 class="sec-h rev">A Complete Module<br>for <em>Every Function</em></h2>
+      <p class="sec-sub rev">Deploy what your business needs today — and scale with additional modules as you grow. Every module integrates seamlessly into the Larch ERP ecosystem.</p>
+      <div class="cat-modules rev rd1">
+        <div class="cat-mod act"><div class="cat-mod-name"><div class="cat-dot"></div>Manufacturing Execution System</div><span class="cat-badge">Core</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Warehouse Management System</div><span class="cat-badge">Core</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>HR Management &amp; Payroll</div><span class="cat-badge">Core</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Production Planning &amp; Scheduling</div><span class="cat-badge">Core</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Finance, Accounts &amp; GST</div><span class="cat-badge">Core</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Quality Management System</div><span class="cat-badge">Core</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Visitor Management System</div><span class="cat-badge add">Add-on</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Barcode &amp; RFID Inventory</div><span class="cat-badge add">Add-on</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Sales &amp; CRM</div><span class="cat-badge add">Add-on</span></div>
+        <div class="cat-mod"><div class="cat-mod-name"><div class="cat-dot"></div>Supply Chain Management</div><span class="cat-badge add">Add-on</span></div>
+      </div>
+      <div style="margin-top:1.8rem" class="rev rd2">
+        <button class="btn-green" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Download Full Catalogue &#8594;</button>
+      </div>
+    </div>
+    <div class="cat-img rev rd2">
+      <img src="images/photo-1587293852726-70cdb56c2866.jpg" alt="ERP Dashboard">
+    </div>
+  </div>
+</section>
+ 
+<!-- ── INDUSTRIES ── -->
+<section class="ind-sec" id="industries">
+  <div class="sec-eyebrow rev">Industries We Serve</div>
+  <h2 class="sec-h rev">Built for the Way<br><em>Plug and Play quick Installation</em></h2>
+  <div class="ind-grid">
+    <div class="ind-card rev">
+      <img src="images\injection molding.jpeg" alt="Automotive">
+      <div class="ind-label"><span>Industry</span><h3>Injection Molding</h3></div>
+    </div>
+    <div class="ind-card rev rd1">
+      <img src="images\wiring harness.jpeg" alt="Logistics">
+      <div class="ind-label"><span>Industry</span><h3>Wiring Harness</h3></div>
+    </div>
+    <div class="ind-card rev rd2">
+      <img src="images\pcb.jpeg" alt="Retail">
+      <div class="ind-label"><span>Industry</span><h3>PCB Assembly</h3></div>
+    </div>
+    <div class="ind-card rev rd3">
+      <img src="images\cable assembly.jpeg" alt="IT Services">
+      <div class="ind-label"><span>Industry</span><h3>Cable Assembly</h3></div>
+    </div>
+    <div class="ind-card rev rd3">
+      <img src="images\safety system.jpeg" alt="IT Services">
+      <div class="ind-label"><span>Industry</span><h3>Safety Systems</h3></div>
+    </div>
+    <div class="ind-card rev rd3">
+      <img src="images\sun roofing.jpeg" alt="IT Services">
+      <div class="ind-label"><span>Industry</span><h3>Sun Roofing Systems</h3></div>
+    </div>
+    <div class="ind-card rev rd3">
+      <img src="images\filler neck tube.jpeg" alt="IT Services">
+      <div class="ind-label"><span>Industry</span><h3>Filler Neck/Filler Tube</h3></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── SUCCESS STORIES ── -->
+<section class="test-sec" id="stories">
+  <div class="sec-eyebrow rev">Success Stories</div>
+  <h2 class="sec-h rev">What Our Clients<br><em>Say About Us</em></h2>
+  <div class="test-grid">
+    <div class="test-card rev">
+      <div class="test-quote">&ldquo;</div>
+      <p class="test-text">Larch ERP transformed our production floor. We now track every operator, machine, and order in real time. Our OEE improved by over 30% in the first year of deployment — it exceeded all our expectations.</p>
+      <div class="test-author">
+        <div class="test-av-init">RS</div>
+        <div><div class="test-name">Rajesh Sundaram</div><div class="test-role">Operations Head, Automotive Components Ltd</div></div>
+      </div>
+    </div>
+    <div class="test-card rev rd1">
+      <div class="test-quote">&ldquo;</div>
+      <p class="test-text">The barcode WMS eliminated all our stock discrepancies overnight. We moved from weekly manual audits to real-time inventory visibility across all warehouses — a complete game changer for our operations.</p>
+      <div class="test-author">
+        <div class="test-av-init">PK</div>
+        <div><div class="test-name">Priya Krishnamurthy</div><div class="test-role">Supply Chain Director, Metro Logistics</div></div>
+      </div>
+    </div>
+    <div class="test-card rev rd2">
+      <div class="test-quote">&ldquo;</div>
+      <p class="test-text">Implementation was smooth. The Larch team genuinely understood our manufacturing process and the ongoing support has been excellent — they treat our challenges as their own and deliver results consistently.</p>
+      <div class="test-author">
+        <div class="test-av-init">AM</div>
+        <div><div class="test-name">Arun Murugesan</div><div class="test-role">CEO, Precision Parts Manufacturing</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── RESOURCES / BROCHURES ── -->
+<section class="res-sec" id="resources">
+  <div class="res-layout">
+    <div>
+      <div class="sec-eyebrow rev">Resources</div>
+      <h2 class="sec-h rev">Brochures, Flyers<br>&amp; <em>Presentations</em></h2>
+      <p class="sec-sub rev">Download our product materials to explore Larch ERP capabilities in depth. Share with your team or management to make the right decision.</p>
+    </div>
+    <div class="res-cards">
+      <a href="resources.html#brochure" class="res-card rev" target="_blank">
+        <div class="res-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div><h4>Product Brochure</h4><p>Complete overview of all Larch ERP modules and capabilities</p></div>
+        <span class="res-card-arrow">&#8594;</span>
+      </a>
+      <a href="resources.html#deck" class="res-card rev rd1" target="_blank">
+        <div class="res-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div><h4>Presentation Deck</h4><p>Ready-to-present slides for management and stakeholder review</p></div>
+        <span class="res-card-arrow">&#8594;</span>
+      </a>
+      <a href="resources.html#flyer" class="res-card rev rd2" target="_blank">
+        <div class="res-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <div><h4>Product Flyer</h4><p>Quick-glance feature summary — perfect for sharing and printing</p></div>
+        <span class="res-card-arrow">&#8594;</span>
+      </a>
+      <a href="resources.html#casestudy" class="res-card rev rd3" target="_blank">
+        <div class="res-icon"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+        <div><h4>Case Study Pack</h4><p>Detailed client success stories across all industry verticals</p></div>
+        <span class="res-card-arrow">&#8594;</span>
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── CAREERS ── -->
+<section class="car-sec" id="careers">
+  <div class="car-layout">
+    <div>
+      <div class="sec-eyebrow rev">Careers</div>
+      <h2 class="sec-h rev">Join Our Team &amp;<br><em>Grow With Us</em></h2>
+      <p class="sec-sub rev">Join us for a challenging career and become part of an exciting team. We are always looking for passionate technology professionals to build the future of ERP in India.</p>
+      <div class="car-img rev rd1" style="margin-top:2rem">
+        <img src="images/photo-1522071820081-009f0129c71c.jpg" alt="Larch Team">
+      </div>
+    </div>
+    <div>
+      <div class="jobs rev rd2">
+        <div class="job"><div><div class="job-t">ERP Implementation Consultant</div><div class="job-m">Chennai &middot; Full-time &middot; 2–5 yrs</div></div><a class="job-apply" href="mailto:sales@larch.in?subject=Application – ERP Implementation Consultant">Apply</a></div>
+        <div class="job"><div><div class="job-t">Full Stack Developer (.NET / React)</div><div class="job-m">Chennai &middot; Full-time &middot; 3–6 yrs</div></div><a class="job-apply" href="mailto:sales@larch.in?subject=Application – Full Stack Developer (.NET / React)">Apply</a></div>
+        <div class="job"><div><div class="job-t">Business Analyst – Manufacturing Domain</div><div class="job-m">Chennai &middot; Full-time &middot; 2–4 yrs</div></div><a class="job-apply" href="mailto:sales@larch.in?subject=Application – Business Analyst (Manufacturing Domain)">Apply</a></div>
+        <div class="job"><div><div class="job-t">SQL Database Administrator</div><div class="job-m">Chennai &middot; Full-time &middot; 3–5 yrs</div></div><a class="job-apply" href="mailto:sales@larch.in?subject=Application – SQL Database Administrator">Apply</a></div>
+        <div class="job"><div><div class="job-t">QA Engineer – ERP Testing</div><div class="job-m">Chennai &middot; Full-time &middot; 1–3 yrs</div></div><a class="job-apply" href="mailto:sales@larch.in?subject=Application – QA Engineer (ERP Testing)">Apply</a></div>
+        <div class="job"><div><div class="job-t">Sales Executive – ERP Solutions</div><div class="job-m">Chennai &middot; Full-time &middot; 1–4 yrs</div></div><a class="job-apply" href="mailto:sales@larch.in?subject=Application – Sales Executive (ERP Solutions)">Apply</a></div>
+      </div>
+      <div class="open-box rev rd3">
+        <p>To apply, please fill the contact form below or send your resume directly. Join us for a challenging career and become part of an exciting team building real-world ERP for India's industries.</p>
+        <a href="mailto:sales@larch.in?subject=Resume Submission">Send Resume to sales@larch.in &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── CONTACT ── -->
+<section class="con-sec" id="contact">
+  <div class="con-layout">
+    <div>
+      <div class="sec-eyebrow rev">Contact Us</div>
+      <h2 class="sec-h rev">Let's Build Something<br><em>Together</em></h2>
+      <p class="sec-sub rev">Reach out to our team to discuss how Larch ERP can streamline your operations. We'd love to understand your business and find the right solution for you.</p>
+      <div class="con-form rev rd1">
+        <div class="form-row">
+          <input class="finput" id="cf-name" type="text" placeholder="Your Name">
+          <input class="finput" id="cf-company" type="text" placeholder="Company Name">
+        </div>
+        <div class="form-row">
+          <input class="finput" id="cf-email" type="email" placeholder="Email Address">
+          <input class="finput" id="cf-phone" type="tel" placeholder="Phone Number">
+        </div>
+        <select class="finput" id="cf-industry" style="appearance:none;cursor:pointer">
+          <option value="" disabled selected>Select Your Industry</option>
+          <option>Automotive Manufacturing</option>
+          <option>Industrial Manufacturing</option>
+          <option>Logistics &amp; Distribution</option>
+          <option>Retail &amp; FMCG</option>
+          <option>Other</option>
+        </select>
+        <textarea class="finput" id="cf-message" placeholder="Tell us about your requirements..."></textarea>
+        <button class="fsub" onclick="sendContactMail()">Send Message &#8594;</button>
+      </div>
+    </div>
+  <div class="con-info rev rd2">
+      <div class="ci">
+        <div class="ci-l">Registered Office</div>
+        <div class="ci-v">S1, 2nd Floor, Plot No.16,<br>Bharani Nagar, Kattupakkam,<br>Chennai – 600 056, Tamil Nadu, India.</div>
+      </div>
+      <div class="ci">
+        <div class="ci-l">R & D Center</div>
+        <div class="ci-v">No.1/4/2, RS Towers, 2nd Floor,<br>New Natham Highway, Oomachikulam,<br>Madurai – 625 014.<br>+91 9884164415</div>
+      </div>
+      <div class="ci">
+        <div class="ci-l">Email</div>
+        <div class="ci-v"><a href="mailto:sales@larch.in">sales@larch.in</a></div>
+      </div>
+      <div class="ci">
+        <div class="ci-l">Website</div>
+        <div class="ci-v"><a href="https://larch.in" target="_blank">www.larch.in</a></div>
+      </div>
+      <div class="ci">
+        <div class="ci-l">Business Hours</div>
+        <div class="ci-v">Monday – Friday, 9:00 AM – 6:00 PM IST</div>
+      </div>
+      <div class="ci">
+        <div class="ci-l">Industries Served</div>
+        <div class="ci-v">Automotive &middot; Manufacturing &middot; Logistics &middot; Mobility</div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <img src="images/LarchLogo.png" alt="Larch Technologies">
+      <p>Information Technology service provider and solutions for IT-enabled industries — headquartered in Chennai, India, serving clients globally since 2011.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Products</h4>
+      <a href="#features">MES</a>
+      <a href="#features">HRMS</a>
+      <a href="#features">WMS</a>
+      <a href="#features">QMS</a>
+      <a href="#features">SCM</a>
+      <a href="#catalogue">Full Catalogue</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="#about">About Us</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#stories">Success Stories</a>
+      <a href="#resources">Resources</a>
+      <a href="#careers">Careers</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:sales@larch.in">sales@larch.in</a>
+      <a href="https://larch.in" target="_blank">www.larch.in</a>
+      <a href="#contact">Get in Touch</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">&copy; 2026 Larch Technologies. Chennai, India. All rights reserved.</div>
+    <div class="foot-legal">
+      <a href="terms&con.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources – Larch ERP</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ── PAGE HERO ── */
+  .page-hero{background:linear-gradient(120deg,var(--green-900) 0%,var(--green-700) 100%);padding:130px 4rem 70px;text-align:center}
+  .page-hero .eyebrow{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#7edd9f;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1.2rem;border-radius:100px;margin-bottom:1.4rem}
+  .page-hero h1{font-family:'Fraunces',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1rem}
+  .page-hero h1 em{color:#7edd9f;font-style:italic;font-weight:300}
+  .page-hero p{color:rgba(255,255,255,.72);font-size:1.05rem;max-width:560px;margin:0 auto}
+
+  /* ── RESOURCE TABS ── */
+  .res-tabs{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;padding:2.5rem 4rem 0;background:var(--off)}
+  .res-tab{background:none;border:2px solid var(--green-100);color:var(--green-600);font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.6rem 1.6rem;border-radius:100px;cursor:pointer;transition:all .25s}
+  .res-tab.active,.res-tab:hover{background:var(--green-500);border-color:var(--green-500);color:#fff}
+
+  /* ── RESOURCE PANELS ── */
+  .res-panel{display:none;padding:3rem 4rem 5rem;background:var(--off);max-width:1200px;margin:0 auto}
+  .res-panel.active{display:block}
+
+  /* ── PANEL HEADER ── */
+  .panel-header{display:flex;align-items:flex-start;gap:3rem;margin-bottom:3rem;background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+  .panel-icon{width:72px;height:72px;background:var(--green-50);border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .panel-icon svg{width:36px;height:36px;stroke:var(--green-600);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .panel-header-text h2{font-family:'Fraunces',serif;font-size:2rem;font-weight:800;color:var(--green-900);margin-bottom:.5rem}
+  .panel-header-text p{color:var(--muted);line-height:1.7;font-size:.98rem;max-width:600px}
+  .panel-dl-btn{margin-left:auto;flex-shrink:0;background:var(--green-500);color:#fff;border:none;padding:.85rem 2rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;border-radius:100px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .25s;white-space:nowrap}
+  .panel-dl-btn:hover{background:var(--green-600);transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,139,87,.3)}
+
+  /* ── CONTENT GRID ── */
+  .panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+  .panel-grid.three{grid-template-columns:1fr 1fr 1fr}
+  .panel-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.05);border:1px solid var(--green-100)}
+  .panel-card h4{font-size:.9rem;font-weight:700;color:var(--green-800);margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem}
+  .panel-card h4::before{content:'';width:8px;height:8px;background:var(--green-500);border-radius:50%;flex-shrink:0}
+  .panel-card ul{list-style:none;padding:0}
+  .panel-card ul li{font-size:.88rem;color:var(--muted);padding:.35rem 0;border-bottom:1px solid var(--green-50);display:flex;align-items:flex-start;gap:.5rem}
+  .panel-card ul li::before{content:'✓';color:var(--green-500);font-weight:700;font-size:.8rem;margin-top:.1rem;flex-shrink:0}
+  .panel-card ul li:last-child{border-bottom:none}
+
+  /* ── HIGHLIGHT STRIP ── */
+  .panel-highlight{background:linear-gradient(120deg,var(--green-800),var(--green-600));border-radius:16px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-top:1.5rem}
+  .panel-highlight p{color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.6;max-width:600px}
+  .panel-highlight a{background:#fff;color:var(--green-700);font-weight:700;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;padding:.7rem 1.8rem;border-radius:100px;text-decoration:none;transition:all .2s;white-space:nowrap}
+  .panel-highlight a:hover{background:var(--green-50);transform:translateY(-1px)}
+
+  /* ── BACK LINK ── */
+  .back-link{color:var(--muted);font-size:.78rem;font-weight:600;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;transition:color .2s;margin-left:auto;border-left:1px solid var(--green-100);padding-left:1.5rem}
+  .back-link:hover{color:var(--green-800)}
+
+  /* ── CASE STUDY CARDS ── */
+  .cs-card{display:flex;flex-direction:column;gap:.8rem}
+  .cs-tag{display:inline-block;background:var(--green-50);color:var(--green-700);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:100px;border:1px solid var(--green-100);width:fit-content}
+  .cs-card h4{font-size:.95rem;font-weight:700;color:var(--green-900);margin:0}
+  .cs-card h4::before{display:none}
+  .cs-metrics{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.4rem}
+  .cs-metrics span{background:var(--green-50);border:1px solid var(--green-100);border-radius:8px;padding:.35rem .75rem;font-size:.78rem;color:var(--muted)}
+  .cs-metrics span strong{color:var(--green-700);font-weight:800}
+  .cs-dl-btn{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;background:var(--green-700);color:#fff;text-decoration:none;font-size:.8rem;font-weight:700;letter-spacing:.04em;padding:.65rem 1.4rem;border-radius:100px;transition:all .25s;width:fit-content}
+  .cs-dl-btn:hover{background:var(--green-900);transform:translateY(-2px);box-shadow:0 6px 18px rgba(46,139,87,.3)}
+
+  @media(max-width:768px){
+    .page-hero,.res-tabs,.res-panel{padding-left:1.5rem;padding-right:1.5rem}
+    .back-link{margin-left:0;border-left:none;padding-left:0}
+    .panel-header{flex-direction:column;gap:1.5rem}
+    .panel-dl-btn{margin-left:0}
+    .panel-grid,.panel-grid.three{grid-template-columns:1fr}
+    .panel-highlight{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="cur-r"></div>
+
+<!-- NAV -->
+<nav id="nav" class="solid">
+  <div class="nav-logo">
+    <a href="index.html">
+        <img src="images/LarchLogo.png" alt="Larch Technologies">
+    </a>
+</div>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Adopting IATF</a></li>
+    <li><a href="index.html#cases">Automotive 5.0</a></li>
+    <li><a href="index.html#features">Core Tools</a></li>
+    <li><a href="index.html#cases">Case Studies</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="index.html#careers">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="eyebrow">Resources</div>
+  <h1>Brochures, Flyers<br>&amp; <em>Presentations</em></h1>
+  <p>Download our product materials to explore Larch ERP capabilities in depth. Share with your team or management to make the right decision.</p>
+</div>
+
+<!-- TABS -->
+<div class="res-tabs" id="resTabs">
+  <button class="res-tab active" onclick="showPanel('brochure',this)">
+    📄 &nbsp;Product Brochure
+  </button>
+  <button class="res-tab" onclick="showPanel('deck',this)">
+    🖥 &nbsp;Presentation Deck
+  </button>
+  <button class="res-tab" onclick="showPanel('flyer',this)">
+    ⚡ &nbsp;Product Flyer
+  </button>
+  <button class="res-tab" onclick="showPanel('casestudy',this)">
+    📁 &nbsp;Case Study Pack
+  </button>
+  <a class="back-link" href="index.html#resources">&#8592; &nbsp;Back to Resources</a>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 1 – PRODUCT BROCHURE
+════════════════════════════════════════════ -->
+<div class="res-panel active" id="panel-brochure">
+  <div class="panel-header">
+    <div class="panel-icon">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <div class="panel-header-text">
+      <h2>Product Brochure</h2>
+      <p>A complete overview of all Larch ERP modules and capabilities — designed to give your team or management a full picture of what Larch can do for your business.</p>
+    </div>
+    <a class="panel-dl-btn" href="resource docs/Larch_Portfolio.pdf" target="_blank">
+      ↓ &nbsp;Download PDF
+    </a>
+  </div>
+
+  <div class="panel-grid">
+    <div class="panel-card">
+      <h4>Modules Covered</h4>
+      <ul>
+        <li>Manufacturing Execution System (MES)</li>
+        <li>Warehouse Management System (WMS)</li>
+        <li>Quality Management System (QMS)</li>
+        <li>Human Resource Management (HRMS)</li>
+        <li>Supply Chain Management (SCM)</li>
+        <li>Finance & Accounts Module</li>
+      </ul>
+    </div>
+    <div class="panel-card">
+      <h4>What's Inside</h4>
+      <ul>
+        <li>Full feature list for each module</li>
+        <li>Industry-specific use cases</li>
+        <li>Integration capabilities (IoT, ERP, Barcode)</li>
+        <li>Compliance coverage (IATF 16949, GST, ISO)</li>
+        <li>Implementation methodology overview</li>
+        <li>Client success highlights</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel-highlight">
+    <p>Ready to explore Larch ERP for your business? Download the brochure and share it with your team, or reach out directly to schedule a demo.</p>
+    <a href="index.html#contact">Request a Demo &rarr;</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 2 – PRESENTATION DECK
+════════════════════════════════════════════ -->
+<div class="res-panel" id="panel-deck">
+  <div class="panel-header">
+    <div class="panel-icon">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    </div>
+    <div class="panel-header-text">
+      <h2>Presentation Deck</h2>
+      <p>Ready-to-present slides built for management reviews and stakeholder meetings. Walk your leadership team through Larch ERP's value proposition with clarity and confidence.</p>
+    </div>
+    <a class="panel-dl-btn" href="mailto:sales@larch.in?subject=Request – Larch ERP Presentation Deck">
+      ✉ &nbsp;Request Deck
+    </a>
+  </div>
+
+  <div class="panel-grid three">
+    <div class="panel-card">
+      <h4>Deck Highlights</h4>
+      <ul>
+        <li>Company overview – since 2011</li>
+        <li>Problem statement & market context</li>
+        <li>Larch ERP solution architecture</li>
+        <li>Module-by-module walkthrough</li>
+        <li>ROI metrics and KPI benchmarks</li>
+      </ul>
+    </div>
+    <div class="panel-card">
+      <h4>Audience Ready For</h4>
+      <ul>
+        <li>C-Suite & Board presentations</li>
+        <li>IT Heads & Project Managers</li>
+        <li>Operations & Plant Heads</li>
+        <li>Finance & Procurement teams</li>
+        <li>Vendor evaluation committees</li>
+      </ul>
+    </div>
+    <div class="panel-card">
+      <h4>Slide Topics</h4>
+      <ul>
+        <li>Why ERP — The Cost of Disconnected Systems</li>
+        <li>Larch ERP Platform Overview</li>
+        <li>Industry-Specific Modules</li>
+        <li>Live Dashboard & Reporting</li>
+        <li>Implementation Timeline & Support</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel-highlight">
+    <p>The presentation deck is available on request. Our team will send it to you customised for your industry vertical within 24 hours.</p>
+    <a href="mailto:sales@larch.in?subject=Request – Larch ERP Presentation Deck">Request Now &rarr;</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 3 – PRODUCT FLYER
+════════════════════════════════════════════ -->
+<div class="res-panel" id="panel-flyer">
+  <div class="panel-header">
+    <div class="panel-icon">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    </div>
+    <div class="panel-header-text">
+      <h2>Product Flyer</h2>
+      <p>A quick-glance, one-page feature summary — perfect for printing, sharing with vendors, or handing out at trade shows and industry events.</p>
+    </div>
+    <a class="panel-dl-btn" href="mailto:sales@larch.in?subject=Request – Larch ERP Product Flyer">
+      ✉ &nbsp;Request Flyer
+    </a>
+  </div>
+
+  <div class="panel-grid">
+    <div class="panel-card">
+      <h4>Flyer Covers</h4>
+      <ul>
+        <li>Top 10 Larch ERP features at a glance</li>
+        <li>Industries served — Automotive, Manufacturing, Logistics, Retail</li>
+        <li>Key metrics achieved by clients</li>
+        <li>Contact & website information</li>
+        <li>QR code for instant demo booking</li>
+      </ul>
+    </div>
+    <div class="panel-card">
+      <h4>Ideal For</h4>
+      <ul>
+        <li>Trade shows & industry exhibitions</li>
+        <li>Vendor & partner meetings</li>
+        <li>Internal sharing with procurement teams</li>
+        <li>Notice boards and office distribution</li>
+        <li>Email attachments for quick reference</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel-highlight">
+    <p>Request the product flyer and we'll send you a print-ready PDF as well as a digital version optimised for email and WhatsApp sharing.</p>
+    <a href="mailto:sales@larch.in?subject=Request – Larch ERP Product Flyer">Request Flyer &rarr;</a>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 4 – CASE STUDY PACK
+════════════════════════════════════════════ -->
+<div class="res-panel" id="panel-casestudy">
+  <div class="panel-header">
+    <div class="panel-icon">
+      <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="panel-header-text">
+      <h2>Case Study Pack</h2>
+      <p>Detailed client success stories across all our industry verticals. Real challenges, real solutions, and measurable results — to help you build confidence in your ERP decision.</p>
+    </div>
+    <a class="panel-dl-btn" href="mailto:sales@larch.in?subject=Request – Larch ERP Case Study Pack">
+      ✉ &nbsp;Request Pack
+    </a>
+  </div>
+
+  <div class="panel-grid">
+
+    <div class="panel-card cs-card">
+      <div class="cs-tag">Automotive Manufacturing</div>
+      <h4>Multi-Plant Production Unification</h4>
+      <ul>
+        <li>Multi-plant production unification across 5 plants</li>
+        <li>20% improvement in OEE</li>
+        <li>30% reduction in defects</li>
+        <li>IATF 16949 compliance achieved</li>
+        <li>End-to-end barcode traceability</li>
+      </ul>
+      <div class="cs-metrics">
+        <span><strong>20%</strong> Better OEE</span>
+        <span><strong>30%</strong> Less Defects</span>
+        <span><strong>18%</strong> Less Downtime</span>
+      </div>
+      <a class="cs-dl-btn" href="docs/Multi-Plant_Production_Unification.pdf" download target="_blank">
+        ↓ &nbsp;Download Case Study
+      </a>
+    </div>
+
+    <div class="panel-card cs-card">
+      <div class="cs-tag">Logistics &amp; Distribution</div>
+      <h4>Real-Time Visibility Across Multi-State Operations</h4>
+      <ul>
+        <li>4-state operations unified on one platform</li>
+        <li>60% reduction in manual data entry</li>
+        <li>100% GST compliance automated</li>
+        <li>Procurement cycle time cut by 40%</li>
+        <li>Real-time management dashboards</li>
+      </ul>
+      <div class="cs-metrics">
+        <span><strong>60%</strong> Less Manual Work</span>
+        <span><strong>4</strong> States Unified</span>
+        <span><strong>40%</strong> Faster Procurement</span>
+      </div>
+      <a class="cs-dl-btn" href="docs/case-study-logistics.pdf" download target="_blank">
+        ↓ &nbsp;Download Case Study
+      </a>
+    </div>
+
+    <div class="panel-card cs-card">
+      <div class="cs-tag">Industrial Manufacturing</div>
+      <h4>OEE Validation &amp; Downtime Reduction with MES</h4>
+      <ul>
+        <li>OEE validated live across all production lines</li>
+        <li>29% fewer unexpected machine breakdowns</li>
+        <li>100% traceability — RM to Finished Goods</li>
+        <li>Maintenance costs reduced by 22%</li>
+        <li>Predictive maintenance alerts deployed</li>
+      </ul>
+      <div class="cs-metrics">
+        <span><strong>29%</strong> Fewer Breakdowns</span>
+        <span><strong>100%</strong> Traceability</span>
+        <span><strong>22%</strong> Less Maint. Cost</span>
+      </div>
+      <a class="cs-dl-btn" href="docs/case-study-manufacturing.pdf" download target="_blank">
+        ↓ &nbsp;Download Case Study
+      </a>
+    </div>
+
+    <div class="panel-card cs-card">
+      <div class="cs-tag">Retail &amp; FMCG</div>
+      <h4>Scaling Inventory Without Scaling Headcount</h4>
+      <ul>
+        <li>12 outlets unified on a single WMS</li>
+        <li>45% reduction in inventory variance</li>
+        <li>80% fewer stockouts across all outlets</li>
+        <li>3 hours saved daily on stock counts</li>
+        <li>Automated reorder alerts implemented</li>
+      </ul>
+      <div class="cs-metrics">
+        <span><strong>45%</strong> Less Variance</span>
+        <span><strong>80%</strong> Less Stockouts</span>
+        <span><strong>3hr</strong> Saved Daily</span>
+      </div>
+      <a class="cs-dl-btn" href="docs/case-study-retail.pdf" download target="_blank">
+        ↓ &nbsp;Download Case Study
+      </a>
+    </div>
+
+  </div>
+
+  <div class="panel-highlight">
+    <p>Want all 4 case studies in one pack? Email us and we'll send the full bundle along with methodology notes and client testimonials.</p>
+    <a href="mailto:sales@larch.in?subject=Request – Full Case Study Pack">Request Full Pack &rarr;</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <img src="images/LarchLogo.png" alt="Larch Technologies">
+      <p>Information Technology service provider and solutions for IT-enabled industries — headquartered in Chennai, India, serving clients globally since 2011.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Products</h4>
+      <a href="index.html#features">MES</a>
+      <a href="index.html#features">HRMS</a>
+      <a href="index.html#features">WMS</a>
+      <a href="index.html#features">QMS</a>
+      <a href="index.html#features">SCM</a>
+      <a href="index.html#catalogue">Full Catalogue</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="index.html#cases">Case Studies</a>
+      <a href="index.html#stories">Success Stories</a>
+      <a href="index.html#resources">Resources</a>
+      <a href="index.html#careers">Careers</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:sales@larch.in">sales@larch.in</a>
+      <a href="https://larch.in" target="_blank">www.larch.in</a>
+      <a href="index.html#contact">Get in Touch</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">&copy; 2025 Larch Technologies. Chennai, India. All rights reserved.</div>
+    <div class="foot-legal">
+      <a href="terms&con.html" target="_blank">Terms &amp; Conditions</a>
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Tab switching
+  function showPanel(id, btn) {
+    document.querySelectorAll('.res-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.res-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+    document.getElementById('resTabs').scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  // Open correct tab if URL has hash e.g. resources.html#deck
+  const hash = window.location.hash.replace('#','');
+  const validTabs = ['brochure','deck','flyer','casestudy'];
+  if(validTabs.includes(hash)){
+    const btn = document.querySelector(`.res-tab[onclick*="${hash}"]`);
+    if(btn) showPanel(hash, btn);
+  }
+</script>
+</body>
+</html>

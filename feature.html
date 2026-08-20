@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Feature – Larch Technologies</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="cur-r"></div>
+
+<!-- ── NAV (always solid on this page) ── -->
+<nav id="nav" class="solid cs-nav-solid">
+  <div class="nav-logo">
+    <a href="index.html">
+        <img src="images/LarchLogo.png" alt="Larch Technologies">
+    </a>
+</div>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Adopting IATF</a></li>
+    <li><a href="index.html#cases">Automotive 5.0</a></li>
+    <li><a href="index.html#features">Core Tools</a></li>
+    <li><a href="index.html#cases">Case Studies</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="index.html#careers">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── BANNER ── -->
+<div class="cs-banner">
+  <img class="cs-banner-img" id="ftBannerImg" src="" alt="">
+  <div class="cs-banner-content">
+    <div class="cs-banner-eyebrow"><span class="cs-dot"></span><span id="ftBannerTag"></span></div>
+    <h1 class="cs-banner-title" id="ftBannerTitle"></h1>
+    <div class="cs-banner-metrics" id="ftBannerMetrics"></div>
+  </div>
+</div>
+
+<!-- ── BREADCRUMB ── -->
+<div class="cs-breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">&#9654;</span>
+  <a href="index.html#features">Adopting IATF</a>
+  <span class="sep">&#9654;</span>
+  <span id="ftBreadTag" style="color:var(--text)"></span>
+</div>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="cs-layout">
+
+  <!-- Left: Article -->
+  <div>
+    <a class="cs-back-btn" href="index.html#features">&#8592; Back to Adopting IATF</a>
+    <div class="cs-content" id="ftContent"></div>
+  </div>
+
+  <!-- Right: Sidebar -->
+  <div>
+    <div class="cs-sidebar-card">
+      <h3>Key Highlights</h3>
+      <div class="cs-metric-grid" id="ftSideMetrics"></div>
+      <!-- PDF Download Button -->
+      <a class="cs-pdf-btn" id="ftPdfBtn" href="#" download>
+        Download 
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── OTHER FEATURES ── -->
+<div class="cs-other-sec">
+  <h3>More <em>Adopting IATF</em></h3>
+  <div class="cs-other-grid" id="ftOtherGrid"></div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <img src="images/LarchLogo.png" alt="Larch Technologies">
+      <p>Information Technology service provider and solutions for IT-enabled industries — headquartered in Chennai, India, serving clients globally since 2011.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Products</h4>
+      <a href="index.html#features">MES</a>
+      <a href="index.html#features">HRMS</a>
+      <a href="index.html#features">WMS</a>
+      <a href="index.html#features">QMS</a>
+      <a href="index.html#features">SCM</a>
+      <a href="index.html#catalogue">Full Catalogue</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#cases">Case Studies</a>
+      <a href="index.html#stories">Success Stories</a>
+      <a href="index.html#resources">Resources</a>
+      <a href="index.html#careers">Careers</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:info@larch.in">info@larch.in</a>
+      <a href="https://larch.in" target="_blank">www.larch.in</a>
+      <a href="index.html#contact">Get in Touch</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">&copy; 2025 Larch Technologies Pvt. Ltd. Chennai, India. All rights reserved.</div>
+    <div class="foot-legal">
+      <a href="terms&con.html" target="_blank">Terms &amp; Conditions</a>
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cur=document.getElementById('cur'),cr=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,.cs-other-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.5)';cr.style.transform='translate(-50%,-50%) scale(1.5)'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';cr.style.transform='translate(-50%,-50%) scale(1)'});
+});
+
+// ── FEATURE DATA ──
+const featureData=[
+  {
+    img:"images/photo-1565514158740-064f34bd6cfd.jpg",
+    tag:"JiT · 5S Inventory / SCM",
+    title:"JiT (Just - in - Time) &amp; <em>5S Inventory / SCM</em>",
+    metrics:[{v:"OEE",l:"Live Validated"},{v:"100%",l:"Traceability"},{v:"Real-Time",l:"Shop Floor Data"},{v:"IoT",l:"Integrated"}],
+    content:`
+<p>Larch 5S Inventory & Supply Chain Management solution is designed to streamline manufacturing operations by combining 5S principles with advanced inventory control and end-to-end supply chain visibility. It enables organizations to maintain structured, efficient, and traceable workflows across the shop floor and supply chain.</p>
+
+<h4>5S Framework</h4>
+<ul>
+<li>Sort – Identify and eliminate non-essential inventory</li>
+<li>Set in Order – Organized storage with bin mapping and tracking</li>
+<li>Shine – Clean and inspect using digital checklists</li>
+<li>Standardize – SOPs and process consistency</li>
+<li>Sustain – Continuous monitoring and audit support</li>
+</ul>
+
+<h4>Inventory & Supply Chain</h4>
+<ul>
+<li>Real-time inventory visibility with FIFO / FEFO processing</li>
+<li>Barcode / QR-based tracking with batch and lot traceability</li>
+<li>Automated replenishment and MRP-based planning</li>
+<li>Supplier management and procurement workflow automation</li>
+<li>Logistics tracking with improved supply chain coordination</li>
+</ul>
+
+<h4>Business Impact</h4>
+<ul>
+<li>Reduces stockouts and excess inventory</li>
+<li>Improves operational efficiency and accuracy</li>
+<li>Ensures compliance and audit readiness</li>
+<li>Enhances end-to-end supply chain visibility</li>
+</ul>
+`,
+    pdf:"product docs/5S_Inventory_SCM_Features.pdf"
+  },
+  {
+    img:"images/photo-1521737604893-d14cc237f11d.jpg",
+    tag:"TPM · Maintenance / OEE",
+    title:"TPM (Total Productive Maintenance) &amp; <em>Maintenance / OEE</em>",
+    metrics:[{v:"360°",l:"Employee View"},{v:"Auto",l:"Payroll"},{v:"Live",l:"Attendance"},{v:"OEE",l:"Manpower Linked"}],
+    content:`
+<p>Larch Plant Maintenance & OEE solution is an end-to-end asset and equipment management platform designed to maximize machine uptime, improve reliability, and enhance overall equipment effectiveness (OEE). It enables organizations to shift from reactive maintenance to predictive and data-driven strategies.</p>
+
+<h4>Maintenance Management</h4>
+<ul>
+<li>Complete asset and equipment lifecycle management with hierarchy tracking</li>
+<li>Preventive maintenance scheduling based on time, usage, and condition</li>
+<li>Breakdown management with instant logging, alerts, and escalation</li>
+<li>Predictive maintenance using IoT data and condition monitoring</li>
+<li>Tooling, die, and mold life tracking with failure analysis</li>
+</ul>
+
+<h4>Operations & Control</h4>
+<ul>
+<li>Digital work order management with technician assignment and tracking</li>
+<li>Spare parts planning with inventory and procurement integration</li>
+<li>Root cause analysis with CAPA for continuous improvement</li>
+<li>Mobile-based maintenance execution with audit trails</li>
+</ul>
+
+<h4>Performance & Analytics</h4>
+<ul>
+<li>Real-time OEE monitoring (Availability, Performance, Quality)</li>
+<li>MTBF, MTTR and downtime analysis with Pareto insights</li>
+<li>Maintenance cost tracking and performance dashboards</li>
+<li>Plant-wide visibility with live KPI reporting</li>
+</ul>
+
+<h4>Business Impact</h4>
+<ul>
+<li>Reduces unplanned downtime and breakdowns</li>
+<li>Improves machine life and reliability</li>
+<li>Optimizes maintenance cost and resource utilization</li>
+<li>Enhances overall production efficiency (OEE)</li>
+</ul>
+`,
+    pdf:"product docs/Maintenance_OEE.pdf"
+  },
+  {
+    img:"images/photo-1553413077-190dd305871c.jpg",
+    tag:"APS · Production Planning / MRP",
+    title:"APS (Advanced Planning and Scheduling) &amp; <em>Production Planning / MRP</em>",
+    metrics:[{v:"Barcode",l:"Real-Time Scan"},{v:"MRP",l:"Auto Planned"},{v:"Zero",l:"Manual Counting"},{v:"Multi",l:"Warehouse Support"}],
+    content:`
+<p>Larch Production Planning & Control solution enables manufacturers to efficiently plan, schedule, and execute production using advanced MRP and APS capabilities. It ensures optimal utilization of resources, improved delivery performance, and real-time visibility across the entire production lifecycle.</p>
+
+<h4>Planning & Scheduling</h4>
+<ul>
+<li>Demand-driven production planning with forecast vs actual alignment</li>
+<li>Time-phased scheduling (daily, weekly, monthly horizons)</li>
+<li>Automated MRP with BOM explosion and material requirement calculation</li>
+<li>Multi-site planning with centralized coordination</li>
+<li>Exception alerts for shortages, delays, and priority changes</li>
+</ul>
+
+<h4>Advanced Planning (APS)</h4>
+<ul>
+<li>Constraint-based scheduling considering machines, tools, and manpower</li>
+<li>Real-time rescheduling during production disruptions</li>
+<li>What-if scenario simulation for better decision making</li>
+<li>Load balancing and bottleneck identification</li>
+<li>Resource optimization for maximum throughput</li>
+</ul>
+
+<h4>Execution & Shop Floor Control</h4>
+<ul>
+<li>Work order management with automatic generation and tracking</li>
+<li>Finite capacity scheduling with real-time visibility</li>
+<li>Shop floor dispatching with Kanban and pull-based systems</li>
+<li>Routing and operation-level control</li>
+</ul>
+
+<h4>Integration & Analytics</h4>
+<ul>
+<li>MES integration with real-time production data capture</li>
+<li>KPI dashboards including OEE, throughput, and cycle time</li>
+<li>Quality tracking with scrap and rework analysis</li>
+<li>Supplier collaboration and performance monitoring</li>
+<li>ERP, PLM, IoT, API and EDI integration</li>
+</ul>
+
+<h4>Business Impact</h4>
+<ul>
+<li>Improves on-time delivery and production efficiency</li>
+<li>Reduces bottlenecks and production delays</li>
+<li>Optimizes resource utilization</li>
+<li>Enhances visibility and control across operations</li>
+</ul>
+`,
+    pdf:"product docs/Production planning and control.pdf"
+  },
+  {
+    img:"images/photo-1504868584819-f8e8b4b6d7e3.jpg",
+    tag:"QMS · Manufacturing Execution / IATF",
+    title:"Quality Management System &amp; <em>IATF 16949 Compliance</em>",
+    metrics:[{v:"IATF",l:"16949 Ready"},{v:"SPC",l:"Statistical Control"},{v:"PPAP",l:"Automated"},{v:"Zero",l:"Manual QC Logs"}],
+    content:`
+
+    <p>Larch QMS is a complete digital quality management platform designed to ensure IATF 16949 compliance and streamline PPAP processes. It integrates supplier quality, SPC, audits, and compliance into one unified system.</p>
+
+    <h4>What is QMS?</h4>
+    <p>A Quality Management System (QMS) ensures that all quality processes — from inspection to compliance — are managed digitally with full traceability and audit readiness.</p>
+
+    <h4>Core Quality Modules</h4>
+    <ul>
+      <li>Document control with versioning and audit trail</li>
+      <li>NCR management (internal, supplier & customer complaints)</li>
+      <li>CAPA with root cause analysis (5-Why, Fishbone)</li>
+      <li>Audit management with checklist and scoring</li>
+      <li>Risk management with FMEA and RPN tracking</li>
+    </ul>
+
+    <h4>Supplier Quality & SPC</h4>
+    <ul>
+      <li>Supplier onboarding and qualification workflow</li>
+      <li>Supplier scorecards (PPM, delivery, quality)</li>
+      <li>Incoming inspection and trend tracking</li>
+      <li>Real-time SPC charts (Cp, Cpk, X-bar, R)</li>
+      <li>Out-of-control alerts and shop-floor visibility</li>
+    </ul>
+
+    <h4>PPAP Digital Workflow</h4>
+    <ul>
+      <li>Full 18-element PPAP management</li>
+      <li>PSW auto-generation with e-signatures</li>
+      <li>Engineering change (ECN) impact tracking</li>
+      <li>Customer-specific approval workflows</li>
+      <li>End-to-end traceability (lot, batch, serial)</li>
+    </ul>
+
+    <h4>Dashboards & Integration</h4>
+    <ul>
+      <li>Real-time dashboards for NCR, CAPA, PPM & audits</li>
+      <li>ERP, MES, PLM and Industry 4.0 integration</li>
+      <li>Customer portal (OEM) connectivity</li>
+    </ul>
+
+    <h4>Business Benefits</h4>
+    <ul>
+      <li>Faster PPAP approvals with digital workflows</li>
+      <li>Zero audit stress with ready compliance data</li>
+      <li>Reduced customer complaints</li>
+      <li>Improved supplier performance</li>
+      <li>Complete digital traceability</li>
+      <li>Eliminate manual paperwork</li>
+    </ul>
+  `,
+    pdf:"product docs/QMS_PPAP_Presentation.pdf"
+  },
+  {
+    img:"images/photo-1512941937669-90a1b58e7e9c.jpg",
+    tag:"FMEA · MSA / SPC / Control Plan",
+    title:"FMEA (Failure Mode and Effects Analysis) &amp; <em>MSA / SPC / Control Plan</em>",
+    metrics:[{v:"Any",l:"Device Access"},{v:"Live",l:"Alerts & Notifications"},{v:"Offline",l:"Mode Support"},{v:"Secure",l:"Role-Based Login"}],
+    content:`
+
+    <p>Larch Quality Intelligence Platform integrates MSA, SPC, and Control Plan into a single system to ensure measurement accuracy, process control, and IATF 16949 compliance across the shop floor.</p>
+
+    <h4>Measurement System Analysis (MSA)</h4>
+    <ul>
+      <li>Centralized gauge and instrument management</li>
+      <li>GR&R (Repeatability & Reproducibility) analysis</li>
+      <li>%GR&R, ndc, bias, linearity and stability evaluation</li>
+      <li>Calibration tracking and audit-ready reports</li>
+      <li>Automated analysis with graphical outputs</li>
+      <li>Full traceability from gauge to process and part</li>
+    </ul>
+
+    <h4>Statistical Process Control (SPC)</h4>
+    <ul>
+      <li>Real-time data capture from machines, IoT, and MES</li>
+      <li>SPC charts (X-bar, R, I-MR, P, NP, C, U)</li>
+      <li>Process capability analysis (Cp, Cpk, Pp, Ppk)</li>
+      <li>Out-of-control alerts with escalation workflows</li>
+      <li>Trend analysis and process drift detection</li>
+      <li>Integration with ERP, MES, PLC and SCADA systems</li>
+    </ul>
+
+    <h4>Control Plan Management</h4>
+    <ul>
+      <li>AIAG and OEM standard control plan templates</li>
+      <li>Process and product characteristics definition (CTQ, CTC)</li>
+      <li>Sampling frequency and inspection methods</li>
+      <li>Reaction plans for out-of-control conditions</li>
+      <li>Version control and change management</li>
+      <li>Customer re-approval and audit support</li>
+    </ul>
+
+    <h4>Integrated Quality Intelligence</h4>
+    <ul>
+      <li>One-click traceability: Control Plan → MSA → SPC → NCR → CAPA</li>
+      <li>Automatic MSA revalidation when SPC drift detected</li>
+      <li>SPC auto-blocking on process violations</li>
+      <li>Quality health dashboards with KPI tracking</li>
+    </ul>
+
+
+    <h4>Business Benefits</h4>
+    <ul>
+      <li>Reduce variation, scrap and rework costs</li>
+      <li>Faster OEM approvals with compliance-ready reports</li>
+      <li>Eliminate manual SPC spreadsheets</li>
+      <li>Ensure audit readiness for IATF 16949</li>
+      <li>Improve shop-floor discipline and process control</li>
+    </ul>
+  `,
+    pdf:"product docs/MSA_SPC_ControlPlan_Presentation.pdf"
+  },
+  {
+    img:"images/pexels-lex-ger-2021617-4294075.jpg",
+    tag:"Production · Traceability & Serialization",
+    title:"End-to-End &amp; <em>Traceability / Serialization</em>",
+    metrics:[{v:"100%",l:"End-to-End Trace"},{v:"Serial",l:"Number Tracking"},{v:"EDI",l:"Customer Integration"},{v:"Multi",l:"Tier Supply Chain"}],
+   content:`
+
+    <p>Larch Traceability & Serialization module provides complete end-to-end visibility across the entire supply chain — from raw materials to finished goods delivery. It ensures full compliance, quality integration, and real-time production tracking.</p>
+
+    <h4>End-to-End Traceability</h4>
+    <ul>
+      <li>Forward and backward traceability across the supply chain</li>
+      <li>Lot, batch, and serial-level tracking</li>
+      <li>Multi-level BOM and product genealogy tracking</li>
+      <li>Material tracking from raw material to finished goods</li>
+      <li>FIFO, FEFO and LIFO traceability support</li>
+    </ul>
+
+    <h4>Serialization Management</h4>
+    <ul>
+      <li>Unique serial number generation with customer-specific formats</li>
+      <li>Barcode, QR and RFID-based identification</li>
+      <li>Complete serial lifecycle tracking (create → produce → ship → warranty)</li>
+      <li>Duplicate detection and prevention</li>
+      <li>Rework and scrap handling with audit trail</li>
+    </ul>
+
+    <h4>Production & Process Traceability</h4>
+    <ul>
+      <li>Machine parameter tracking (torque, temperature, pressure, RPM)</li>
+      <li>Operator, shift, and workstation tracking</li>
+      <li>Real-time MES and shop-floor integration</li>
+      <li>Station-wise serial tracking and process enforcement</li>
+      <li>Recipe and program version control</li>
+    </ul>
+
+    <h4>Quality & Compliance Integration</h4>
+    <ul>
+      <li>Linkage with inspection, SPC, NCR and CAPA</li>
+      <li>Control plan and PPAP integration</li>
+      <li>Recall management and containment tracking</li>
+      <li>Instant affected serial identification</li>
+    </ul>
+
+    <h4>Business Benefits</h4>
+    <ul>
+      <li>Instant recall analysis and root cause identification</li>
+      <li>Reduced warranty and recall costs</li>
+      <li>Faster audits with complete digital traceability</li>
+      <li>Improved OEM compliance and trust</li>
+      <li>Full visibility across multi-tier supply chain</li>
+    </ul>
+  `,
+    pdf:"product docs/Traceability_Serialization (1).pdf"
+  }
+];
+
+// ── RENDER PAGE FROM URL PARAM ──
+const id = parseInt(new URLSearchParams(window.location.search).get('id')) || 0;
+const d  = featureData[id];
+
+document.title = d.tag + ' – Larch Technologies';
+
+// Banner
+document.getElementById('ftBannerImg').src = d.img;
+document.getElementById('ftBannerImg').alt = d.tag;
+document.getElementById('ftBannerTag').textContent = d.tag;
+document.getElementById('ftBannerTitle').innerHTML = d.title;
+document.getElementById('ftBannerMetrics').innerHTML = d.metrics
+  .map(x=>`<div class="cs-bmet"><div class="cs-bmet-v">${x.v}</div><div class="cs-bmet-l">${x.l}</div></div>`)
+  .join('');
+
+// Breadcrumb
+document.getElementById('ftBreadTag').textContent = d.tag;
+
+// Article
+document.getElementById('ftContent').innerHTML = d.content;
+
+// Sidebar metrics
+document.getElementById('ftSideMetrics').innerHTML = d.metrics
+  .map(x=>`<div class="cs-met"><div class="cs-met-v">${x.v}</div><div class="cs-met-l">${x.l}</div></div>`)
+  .join('');
+
+// PDF button
+const btn = document.getElementById('ftPdfBtn');
+btn.href = d.pdf;
+btn.download = d.pdf.split('/').pop();
+
+// Other features
+document.getElementById('ftOtherGrid').innerHTML = featureData
+  .filter((_,i)=>i!==id)
+  .slice(0,3)
+  .map(f=>`
+    <a class="cs-other-card" href="feature.html?id=${featureData.indexOf(f)}">
+      <img src="${f.img}" alt="${f.tag}">
+      <div class="cs-other-body">
+        <div class="cs-other-ind">${f.tag}</div>
+        <div class="cs-other-title">${f.title.replace(/<\/?em>/g,'').replace(/&amp;/g,'&')}</div>
+        <div class="cs-other-link">Learn More &#8594;</div>
+      </div>
+    </a>`)
+  .join('');
+</script>
+</body>
+</html>

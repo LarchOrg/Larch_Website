@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study – Larch Technologies</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="cur-r"></div>
+
+<!-- ── NAV (always solid on this page) ── -->
+<nav id="nav" class="solid cs-nav-solid">
+  <div class="nav-logo">
+    <a href="index.html">
+        <img src="images/LarchLogo.png" alt="Larch Technologies">
+    </a>
+</div>
+  <ul class="nav-links">
+    <li><a href="index.html#features">Adopting IATF</a></li>
+    <li><a href="index.html#cases">Automotive 5.0</a></li>
+    <li><a href="index.html#features">Core Tools</a></li>
+    <li><a href="index.html#cases">Case Studies</a></li>
+    <li><a href="index.html#about">About Us</a></li>
+    <li><a href="index.html#careers">Careers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- ── BANNER ── -->
+<div class="cs-banner">
+  <img class="cs-banner-img" id="csBannerImg" src="" alt="">
+  <div class="cs-banner-content">
+    <div class="cs-banner-eyebrow"><span class="cs-dot"></span><span id="csBannerInd"></span></div>
+    <h1 class="cs-banner-title" id="csBannerTitle"></h1>
+    <div class="cs-banner-metrics" id="csBannerMetrics"></div>
+  </div>
+</div>
+
+<!-- ── BREADCRUMB ── -->
+<div class="cs-breadcrumb">
+  <a href="index.html">Home</a>
+  <span class="sep">&#9654;</span>
+  <a href="index.html#cases">Automotive 5.0</a>
+  <span class="sep">&#9654;</span>
+  <span id="csBreadInd" style="color:var(--text)"></span>
+</div>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="cs-layout">
+
+  <!-- Left: Article -->
+  <div>
+    <a class="cs-back-btn" href="index.html#cases">&#8592; Back to Automotive 5.0</a>
+    <div class="cs-content" id="csContent"></div>
+  </div>
+
+  <!-- Right: Sidebar -->
+  <div>
+    <div class="cs-sidebar-card">
+      <h3>Key Results</h3>
+      <div class="cs-metric-grid" id="csSideMetrics"></div>
+      <!-- PDF Download Button with PDF file icon -->
+      <a class="cs-pdf-btn" id="csPdfBtn" href="#" download>
+        Download 
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── OTHER CASE STUDIES ── -->
+<div class="cs-other-sec">
+  <h3>More <em>Case Studies</em></h3>
+  <div class="cs-other-grid" id="csOtherGrid"></div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">
+      <img src="images/LarchLogo.png" alt="Larch Technologies">
+      <p>Information Technology service provider and solutions for IT-enabled industries — headquartered in Chennai, India, serving clients globally since 2011.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Products</h4>
+      <a href="index.html#mes">MES</a>
+      <a href="index.html#hrms">HRMS</a>
+      <a href="index.html#wms">WMS</a>
+      <a href="index.html#qms">QMS</a>
+      <a href="index.html#scm">SCM</a>
+      <a href="index.html#catalogue">Full Catalogue</a>
+    </div>
+    <div class="foot-col">
+      <h4>Company</h4>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#cases">Case Studies</a>
+      <a href="index.html#stories">Success Stories</a>
+      <a href="index.html#resources">Resources</a>
+      <a href="index.html#careers">Careers</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <a href="mailto:info@larch.in">info@larch.in</a>
+      <a href="https://larch.in" target="_blank">www.larch.in</a>
+      <a href="index.html#contact">Get in Touch</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">&copy; 2025 Larch Technologies Pvt. Ltd. Chennai, India. All rights reserved.</div>
+    <div class="foot-legal">
+      <a href="terms&con.html" target="_blank">Terms &amp; Conditions</a>
+      <a href="privacy.html" target="_blank">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cur=document.getElementById('cur'),cr=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,.cs-other-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.5)';cr.style.transform='translate(-50%,-50%) scale(1.5)'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';cr.style.transform='translate(-50%,-50%) scale(1)'});
+});
+
+// ── CASE DATA ──
+const caseData=[
+  {
+    img:"images/pexels-kateryna-babaieva-1423213-2760241.jpg",
+    industry:"Automotive Manufacturing",
+    title:"Multi-Plant Production Unification in <em>Automotive Manufacturing</em>",
+    metrics:[{v:"20%",l:"Better OEE"},{v:"30%",l:"Less Defects"},{v:"18%",l:"Less Downtime"},{v:"15%",l:"Less Inventory"}],
+    content:`
+      <p>A Tier-1 automotive supplier operating across 5 manufacturing plants faced challenges managing production, quality, and inventory uniformly. Each plant used different systems — Excel, legacy ERP, manual logs — leading to inconsistencies and poor visibility.</p>
+      <h4>Key Challenges</h4>
+      <ul>
+        <li>No centralized visibility across all 5 plants</li>
+        <li>Different SOPs, quality checks and reporting formats per plant</li>
+        <li>Difficult to maintain IATF 16949 compliance</li>
+        <li>Delayed decision-making — no live production tracking</li>
+        <li>Overstock in one plant, shortages in another</li>
+      </ul>
+      <h4>Solution Implemented</h4>
+      <ul>
+        <li>Real-time production tracking with standardized work orders</li>
+        <li>Integrated QMS — SPC, MSA, Control Plan, PPAP</li>
+        <li>Central visibility of Raw Material, WIP and Finished Goods</li>
+        <li>End-to-end barcode-based traceability across all plants</li>
+        <li>Live KPI dashboard — OEE, Rejection Rate, Downtime, Delivery</li>
+      </ul>
+      <h4>Implementation Approach</h4>
+      <ul>
+        <li>Phase 1: Gap analysis and process standardization</li>
+        <li>Phase 2: Pilot deployment in one plant with KPI validation</li>
+        <li>Phase 3: Gradual rollout with operator and manager training</li>
+        <li>Phase 4: Full ERP, IoT and third-party system integration</li>
+      </ul>
+      <h4>Key Results</h4>
+      <ul>
+        <li>25% increase in production visibility across all plants</li>
+        <li>18% reduction in downtime, 20% improvement in OEE</li>
+        <li>30% reduction in defects — improved IATF 16949 audit readiness</li>
+        <li>15% reduction in excess inventory with better inter-plant utilization</li>
+      </ul>`,
+    pdf:"case docs/Multi-Plant_Production_Unification.pdf"
+  },
+  {
+    img:"images/pexels-lex-ger-2021617-4294075.jpg",
+    industry:"Logistics & Distribution",
+    title:"Real-Time Visibility Across <em>Multi-State Operations</em>",
+    metrics:[{v:"60%",l:"Less Manual Work"},{v:"4",l:"States Unified"},{v:"100%",l:"GST Automated"},{v:"40%",l:"Faster Procurement"}],
+    content:`
+      <p>A logistics and distribution company operating across 4 states needed a centralized system to manage procurement, inventory, and finance while staying GST compliant across state borders.</p>
+      <h4>Key Challenges</h4>
+      <ul>
+        <li>Operations spread across 4 states with no central visibility</li>
+        <li>Manual GST filing causing compliance issues and delays</li>
+        <li>Separate disconnected systems for Sales, Purchase and Finance</li>
+        <li>High manual effort for daily reporting and reconciliation</li>
+      </ul>
+      <h4>Solution Implemented</h4>
+      <ul>
+        <li>Integrated Sales, Purchase, Inventory and Finance modules</li>
+        <li>Automated GST calculation and filing across all states</li>
+        <li>Centralized procurement and vendor management</li>
+        <li>Real-time dashboards for management visibility</li>
+      </ul>
+      <h4>Key Results</h4>
+      <ul>
+        <li>60% reduction in manual data entry and reporting work</li>
+        <li>All 4 state operations unified on a single platform</li>
+        <li>100% GST compliance automated — zero manual filing</li>
+        <li>Procurement cycle time reduced by 40%</li>
+      </ul>`,
+    pdf:"case docs/CaseStudy_RealTimeVisibility.pdf"
+  },
+  {
+    img:"images/photo-1565514158740-064f34bd6cfd.jpg",
+    industry:"Industrial Manufacturing",
+    title:"OEE Validation & <em>Downtime Reduction with MES</em>",
+    metrics:[{v:"29%",l:"Fewer Breakdowns"},{v:"OEE",l:"Live Validated"},{v:"100%",l:"Traceability"},{v:"22%",l:"Less Maint. Cost"}],
+    content:`
+      <p>A precision parts manufacturer needed to validate their Overall Equipment Efficiency and reduce unexpected machine breakdowns that were causing production delays and customer delivery failures.</p>
+      <h4>Key Challenges</h4>
+      <ul>
+        <li>No real-time OEE tracking or validation</li>
+        <li>Frequent unexpected machine breakdowns</li>
+        <li>No operator availability monitoring</li>
+        <li>Zero traceability from raw material to finished goods</li>
+      </ul>
+      <h4>Solution Implemented</h4>
+      <ul>
+        <li>Deployed Larch MES with live OEE dashboard</li>
+        <li>Real-time machine status and operator availability tracking</li>
+        <li>Predictive maintenance alerts to prevent breakdowns</li>
+        <li>End-to-end traceability from RM to Finished Goods</li>
+      </ul>
+      <h4>Key Results</h4>
+      <ul>
+        <li>29% reduction in unexpected machine breakdowns</li>
+        <li>OEE validated live across all production lines</li>
+        <li>100% traceability achieved for all products</li>
+        <li>Maintenance costs reduced by 22%</li>
+      </ul>`,
+    pdf:"case docs/OEE_CaseStudy_Presentation.pdf"
+  },
+  {
+    img:"images/photo-1556742049-0cfed4f6a45d.jpg",
+    industry:"Retail & FMCG",
+    title:"Scaling Inventory <em>Without Scaling Headcount</em>",
+    metrics:[{v:"45%",l:"Less Variance"},{v:"12",l:"Outlets Unified"},{v:"3hr",l:"Saved Daily"},{v:"80%",l:"Less Stockouts"}],
+    content:`
+      <p>A growing retail chain with 12 outlets was struggling with manual stock counts, frequent stockouts, and inventory discrepancies affecting customer satisfaction and profitability.</p>
+      <h4>Key Challenges</h4>
+      <ul>
+        <li>12 outlets with no unified inventory system</li>
+        <li>Weekly manual stock counts taking 2 days each</li>
+        <li>Frequent stockouts and overstock situations</li>
+        <li>No real-time visibility of stock movement across outlets</li>
+      </ul>
+      <h4>Solution Implemented</h4>
+      <ul>
+        <li>Implemented WMS with barcode scanning across all 12 outlets</li>
+        <li>Real-time inventory movement tracking</li>
+        <li>Automated reorder alerts to prevent stockouts</li>
+        <li>Centralized stock visibility dashboard</li>
+      </ul>
+      <h4>Key Results</h4>
+      <ul>
+        <li>45% reduction in inventory variance</li>
+        <li>All 12 outlets unified on one platform</li>
+        <li>3 hours saved daily — stock counts now real-time</li>
+        <li>Stockouts reduced by 80% across all outlets</li>
+      </ul>`,
+    pdf:"case docs/Inventory_CaseStudy_Presentation.pdf"
+  }
+];
+
+// ── RENDER PAGE FROM URL PARAM ──
+const id = parseInt(new URLSearchParams(window.location.search).get('id')) || 0;
+const d  = caseData[id];
+
+document.title = d.industry + ' Case Study – Larch Technologies';
+
+// Banner
+document.getElementById('csBannerImg').src = d.img;
+document.getElementById('csBannerImg').alt = d.industry;
+document.getElementById('csBannerInd').textContent = d.industry;
+document.getElementById('csBannerTitle').innerHTML = d.title;
+document.getElementById('csBannerMetrics').innerHTML = d.metrics
+  .map(x=>`<div class="cs-bmet"><div class="cs-bmet-v">${x.v}</div><div class="cs-bmet-l">${x.l}</div></div>`)
+  .join('');
+
+// Breadcrumb
+document.getElementById('csBreadInd').textContent = d.industry;
+
+// Article
+document.getElementById('csContent').innerHTML = d.content;
+
+// Sidebar metrics
+document.getElementById('csSideMetrics').innerHTML = d.metrics
+  .map(x=>`<div class="cs-met"><div class="cs-met-v">${x.v}</div><div class="cs-met-l">${x.l}</div></div>`)
+  .join('');
+
+// PDF button
+const btn = document.getElementById('csPdfBtn');
+btn.href = d.pdf;
+btn.download = d.pdf.split('/').pop();
+
+// Other cases
+document.getElementById('csOtherGrid').innerHTML = caseData
+  .filter((_,i)=>i!==id)
+  .map(c=>`
+    <a class="cs-other-card" href="case.html?id=${caseData.indexOf(c)}">
+      <img src="${c.img}" alt="${c.industry}">
+      <div class="cs-other-body">
+        <div class="cs-other-ind">${c.industry}</div>
+        <div class="cs-other-title">${c.title.replace(/<\/?em>/g,'')}</div>
+        <div class="cs-other-link">Read Case Study &#8594;</div>
+      </div>
+    </a>`)
+  .join('');
+</script>
+</body>
+</html>
