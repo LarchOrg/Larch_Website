@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slide Details - LarchERP</title>
+  <style>
+    /* =========================================================
+   FONTS
+========================================================= */
+
+    @font-face {
+      font-family: 'Plus Jakarta Sans';
+      src: url('fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+    }
+
+    @font-face {
+      font-family: 'Fraunces';
+      src: url('fonts/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Fraunces';
+      src: url('fonts/Fraunces-Italic-VariableFont_SOFT,WONK,opsz,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: italic;
+    }
+
+
+    /* =========================================================
+   GLOBAL
+========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --white: #ffffff;
+      --off: #f8f7f4;
+      --light: #eef0eb;
+
+      --green-50: #e8f5ee;
+      --green-100: #c3e6ce;
+      --green-500: #2e8b57;
+      --green-600: #236b42;
+      --green-700: #1a5232;
+      --green-800: #133d26;
+      --green-900: #0b2517;
+
+      --dark: #0d1a10;
+      --gold: #c59c3a;
+      --text: #1a2e1d;
+      --muted: #607060;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+
+    /* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+    .cur {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: var(--green-500);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform .15s, opacity .3s;
+    }
+
+    .cur-r {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid rgba(46, 139, 87, .4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: all .08s;
+    }
+
+    @media (hover:none) {
+
+      .cur,
+      .cur-r {
+        display: none;
+      }
+    }
+
+
+    /* =========================================================
+   NAVIGATION
+========================================================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 400;
+      height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 4rem;
+
+      background: rgba(255, 255, 255, 0);
+      backdrop-filter: blur(0px);
+
+      transition: all .4s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      transition: filter .4s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--white);
+
+      transition: color .2s;
+
+      padding-bottom: 2px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      height: 1.5px;
+
+      background: var(--green-500);
+
+      transform: scaleX(0);
+      transition: transform .25s;
+      transform-origin: left;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-links a:hover {
+      color: var(--green-500);
+    }
+
+
+    /* =========================================================
+   SOLID NAVIGATION — USED BY slide-details.html
+========================================================= */
+
+    nav.cs-nav-solid {
+      background: rgba(255, 255, 255, .97) !important;
+      backdrop-filter: blur(20px) !important;
+      border-bottom-color: rgba(46, 139, 87, .12) !important;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, .06) !important;
+    }
+
+    nav.cs-nav-solid .nav-links a {
+      color: var(--text) !important;
+    }
+
+    nav.cs-nav-solid .nav-logo img {
+      filter: none !important;
+    }
+
+
+    /* =========================================================
+   CASE STUDY / SLIDE DETAILS BANNER
+========================================================= */
+
+    .cs-banner {
+      position: relative;
+      height: 72vh;
+      min-height: 500px;
+
+      overflow: hidden;
+
+      display: flex;
+      align-items: flex-end;
+
+      margin-top: 70px;
+    }
+
+    .cs-banner-img {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .cs-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      display: none;
+
+      background:
+        linear-gradient(110deg,
+          rgba(10, 30, 15, .88) 0%,
+          rgba(10, 30, 15, .52) 60%,
+          rgba(10, 30, 15, .2) 100%);
+    }
+
+    .cs-banner-content {
+      position: relative;
+      z-index: 2;
+
+      padding: 0 4rem 3.5rem;
+
+      max-width: 900px;
+    }
+
+    /*.cs-banner-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+
+  backdrop-filter: blur(10px);
+
+  color: #fff;
+
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  padding: .4rem 1rem;
+
+  border-radius: 100px;
+
+  margin-bottom: 1.4rem;
+}
+
+.cs-banner-eyebrow .cs-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #7edd9f;
+
+  flex-shrink: 0;
+}
+
+.cs-banner-title {
+  font-family: 'Fraunces', serif;
+
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+
+  font-weight: 900;
+  line-height: 1.1;
+
+  color: #fff;
+
+  margin-bottom: 1.8rem;
+}
+
+.cs-banner-title em {
+  color: #7edd9f;
+  font-style: italic;
+  font-weight: 300;
+}*/
+
+
+    /* =========================================================
+   BREADCRUMB
+========================================================= */
+
+    .cs-breadcrumb {
+      background: var(--off);
+
+      border-bottom: 1px solid var(--light);
+
+      padding: .9rem 4rem;
+
+      display: flex;
+      align-items: center;
+
+      gap: .5rem;
+
+      font-size: .78rem;
+      font-weight: 500;
+
+      color: var(--muted);
+    }
+
+    .cs-breadcrumb a {
+      color: var(--green-600);
+
+      text-decoration: none;
+
+      font-weight: 600;
+
+      transition: color .2s;
+    }
+
+    .cs-breadcrumb a:hover {
+      color: var(--green-500);
+    }
+
+    .cs-breadcrumb .sep {
+      opacity: .4;
+      font-size: .65rem;
+    }
+
+
+    /* =========================================================
+   MAIN CONTENT LAYOUT
+========================================================= */
+
+    .cs-layout {
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 4rem;
+
+      display: grid;
+
+      grid-template-columns: 1fr 320px;
+
+      gap: 4rem;
+
+      align-items: start;
+    }
+
+
+    /* =========================================================
+   BACK TO HOME
+========================================================= */
+
+    .cs-back-btn {
+      display: inline-flex;
+      align-items: center;
+
+      gap: .5rem;
+
+      color: var(--green-600);
+
+      font-size: .85rem;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      margin-bottom: 1.8rem;
+
+      transition: color .2s;
+    }
+
+    .cs-back-btn:hover {
+      color: var(--green-500);
+    }
+
+
+    /* =========================================================
+   ARTICLE CONTENT
+========================================================= */
+
+    .cs-content h4 {
+      font-family: 'Fraunces', serif;
+
+      font-size: 1.2rem;
+
+      font-weight: 700;
+
+      color: var(--green-700);
+
+      margin: 2rem 0 .8rem;
+
+      padding-bottom: .5rem;
+
+      border-bottom: 2px solid var(--green-100);
+    }
+
+    .cs-content p {
+      font-size: 1rem;
+
+      line-height: 1.85;
+
+      color: var(--text);
+
+      margin-bottom: 1rem;
+    }
+
+    .cs-content ul {
+      padding-left: 0;
+
+      list-style: none;
+
+      margin-bottom: 1rem;
+    }
+
+    .cs-content ul li {
+      font-size: .95rem;
+
+      line-height: 1.7;
+
+      color: var(--text);
+
+      padding: .5rem 0 .5rem 1.8rem;
+
+      position: relative;
+
+      border-bottom: 1px solid var(--light);
+    }
+
+    .cs-content ul li:last-child {
+      border-bottom: none;
+    }
+
+    .cs-content ul li::before {
+      content: '';
+
+      position: absolute;
+
+      left: 0;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--green-500);
+    }
+
+
+    /* =========================================================
+   SIDEBAR
+========================================================= */
+
+    .cs-sidebar-card {
+      background: var(--off);
+
+      border: 1px solid var(--light);
+
+      border-radius: 16px;
+
+      padding: 2rem;
+
+      position: sticky;
+
+      top: 90px;
+    }
+
+    .cs-sidebar-card h3 {
+      font-size: .7rem;
+
+      font-weight: 700;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+
+      margin-bottom: 1.2rem;
+    }
+
+
+    /* =========================================================
+   SIDEBAR BUTTONS
+========================================================= */
+
+    .cs-pdf-btn {
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: .7rem;
+
+      background: var(--green-500);
+
+      color: #fff;
+
+      text-decoration: none;
+
+      border-radius: 12px;
+
+      padding: 1rem 1.4rem;
+
+      font-size: .84rem;
+
+      font-weight: 700;
+
+      letter-spacing: .04em;
+
+      transition: all .25s;
+
+      width: 100%;
+
+      border: none;
+
+      cursor: pointer;
+
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .cs-pdf-btn:hover {
+      background: var(--green-600);
+
+      transform: translateY(-2px);
+
+      box-shadow: 0 8px 24px rgba(46, 139, 87, .3);
+    }
+
+
+    /* =========================================================
+   OTHER SLIDES SECTION
+========================================================= */
+
+    .cs-other-sec {
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 0 4rem 5rem;
+
+      border-top: 1px solid var(--light);
+    }
+
+    .cs-other-sec h3 {
+      font-family: 'Fraunces', serif;
+
+      font-size: 1.6rem;
+
+      font-weight: 700;
+
+      color: var(--text);
+
+      margin: 2.5rem 0 1.8rem;
+    }
+
+    .cs-other-sec h3 em {
+      color: var(--green-600);
+
+      font-style: italic;
+
+      font-weight: 300;
+    }
+
+    .cs-other-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 1.5rem;
+    }
+
+    .cs-other-card {
+      background: #fff;
+
+      border: 1px solid var(--light);
+
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      text-decoration: none;
+
+      display: block;
+
+      transition: all .25s;
+    }
+
+    .cs-other-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .1);
+
+      border-color: var(--green-100);
+    }
+
+    .cs-other-card img {
+      width: 100%;
+
+      height: 155px;
+
+      object-fit: cover;
+    }
+
+    .cs-other-body {
+      padding: 1.2rem;
+    }
+
+    .cs-other-ind {
+      font-size: .67rem;
+
+      font-weight: 700;
+
+      letter-spacing: .1em;
+
+      text-transform: uppercase;
+
+      color: var(--green-500);
+
+      margin-bottom: .4rem;
+    }
+
+    .cs-other-title {
+      font-size: .92rem;
+
+      font-weight: 700;
+
+      color: var(--text);
+
+      line-height: 1.4;
+    }
+
+    .cs-other-link {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: .3rem;
+
+      margin-top: .7rem;
+
+      font-size: .76rem;
+
+      font-weight: 600;
+
+      color: var(--green-600);
+    }
+
+
+    /* =========================================================
+   FOOTER
+========================================================= */
+
+    footer {
+      background: var(--green-900);
+
+      padding: 3rem 4rem 2rem;
+
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .foot-top {
+      display: grid;
+
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+      gap: 3rem;
+
+      margin-bottom: 3rem;
+    }
+
+    .foot-brand img {
+      height: 30px;
+
+      filter: brightness(0) invert(1);
+
+      opacity: .7;
+
+      margin-bottom: 1rem;
+    }
+
+    .foot-brand p {
+      font-size: .82rem;
+
+      color: rgb(250, 246, 246);
+
+      line-height: 1.7;
+
+      font-weight: 300;
+
+      max-width: 240px;
+    }
+
+    .foot-col h4 {
+      font-size: .72rem;
+
+      font-weight: 700;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      color: rgb(250, 246, 246);
+
+      margin-bottom: 1.2rem;
+    }
+
+    .foot-col a {
+      display: block;
+
+      font-size: .82rem;
+
+      color: rgb(250, 246, 246);
+
+      text-decoration: none;
+
+      margin-bottom: .6rem;
+
+      transition: color .2s;
+    }
+
+    .foot-col a:hover {
+      color: #7edd9f;
+    }
+
+    .foot-bottom {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      padding-top: 2rem;
+
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .foot-copy {
+      font-size: .75rem;
+
+      color: rgb(250, 246, 246);
+    }
+
+    .foot-legal {
+      display: flex;
+
+      gap: 2rem;
+    }
+
+    .foot-legal a {
+      font-size: .75rem;
+
+      color: rgb(250, 246, 246);
+
+      text-decoration: none;
+
+      transition: color .2s;
+    }
+
+    .foot-legal a:hover {
+      color: #7edd9f;
+    }
+
+
+    /* =========================================================
+   RESPONSIVE — SLIDE DETAILS
+========================================================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        padding: 0 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      footer {
+        padding: 2rem 1.5rem;
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+    @media (max-width: 900px) {
+
+      .cs-breadcrumb {
+        padding: .9rem 1.5rem;
+      }
+
+      .cs-layout {
+        grid-template-columns: 1fr;
+
+        padding: 2rem 1.5rem;
+      }
+
+      .cs-sidebar-card {
+        position: static;
+      }
+
+      .cs-other-sec {
+        padding: 0 1.5rem 3rem;
+      }
+
+      .cs-other-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cur" id="cur"></div>
+  <div class="cur-r" id="cur-r"></div>
+
+  <!-- ── NAV (always solid on this page) ── -->
+  <nav id="nav" class="cs-nav-solid">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="images/LarchLogo.png" alt="Larch Technologies">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Adopting IATF</a></li>
+      <li><a href="index.html#cases">Automotive 5.0</a></li>
+      <li><a href="index.html#features">Core Tools</a></li>
+      <li><a href="index.html#cases">Case Studies</a></li>
+      <li><a href="index.html#about">About Us</a></li>
+      <li><a href="index.html#careers">Careers</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── BANNER (populated by JS) ── -->
+  <div class="cs-banner">
+    <img class="cs-banner-img" id="sdImage" src="" alt="">
+    <div class="cs-banner-content">
+      <span id="sdBadge"></span>
+    </div>
+    <h1 class="cs-banner-title" id="sdTitle"></h1>
+
+  </div>
+
+  <!-- ── BREADCRUMB ── -->
+  <div class="cs-breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="sep">&#9656;</span>
+    <span id="sdCrumb"></span>
+  </div>
+
+  <!-- ── CONTENT LAYOUT ── -->
+  <div class="cs-layout">
+    <div>
+      <a href="index.html" class="cs-back-btn">&#8592; Back to Home</a>
+      <div class="cs-content" id="sdContent"></div>
+    </div>
+
+    <aside class="cs-sidebar-card">
+      <h3>Explore More</h3>
+      <p style="font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem">
+        See how Larch ERP brings every part of your operation onto one platform.
+      </p>
+      <a href="index.html#features" class="cs-pdf-btn" style="margin-bottom:.9rem">Explore Features</a>
+      <a href="index.html#contact" class="cs-pdf-btn"
+        style="background:transparent;border:1.5px solid var(--green-500);color:var(--green-600)">Get in Touch</a>
+    </aside>
+  </div>
+
+  <!-- ── OTHER SLIDES ── -->
+  <section class="cs-other-sec">
+    <h3>Explore Our Other <em>Highlights</em></h3>
+    <div class="cs-other-grid" id="sdOtherGrid"></div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="images/LarchLogo.png" alt="Larch Technologies">
+        <p>Information Technology service provider and solutions for IT-enabled industries — headquartered in Chennai,
+          India, serving clients globally since 2011.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Products</h4>
+        <a href="index.html#features">MES</a>
+        <a href="index.html#features">HRMS</a>
+        <a href="index.html#features">WMS</a>
+        <a href="index.html#features">QMS</a>
+        <a href="index.html#features">SCM</a>
+        <a href="index.html#catalogue">Full Catalogue</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#cases">Case Studies</a>
+        <a href="index.html#stories">Success Stories</a>
+        <a href="index.html#resources">Resources</a>
+        <a href="index.html#careers">Careers</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:sales@larch.in">sales@larch.in</a>
+        <a href="https://larch.in" target="_blank">www.larch.in</a>
+        <a href="index.html#contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-copy">&copy; 2026 Larch Technologies. Chennai, India. All rights reserved.</div>
+      <div class="foot-legal">
+        <a href="terms&con.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── SLIDE DATA — keep this in sync with the hslide list in index.html ── */
+    const slideData = [
+      {
+        image: "images/prod.jpeg",
+        crumb: "Better Production",
+        paragraphs: [
+          "How Effective Should Your Production Plan Be?",
+          "A production plan is not just a schedule on paper. It is the roadmap that connects demand, people, machines, materials, and delivery.",
+
+        ],
+        bullets: [
+          "<b>What needs to be produced?</b> — Align production with actual customer demand",
+          "<b>When should it be produced?</b> — Set realistic timelines and priorities.",
+          "<b>Do we have the capacity?</b> — Consider manpower, machines, and available working hours",
+          "<b>Do we have the materials?</b> — Avoid production stoppages caused by material shortages.",
+          "<b>Can we deliver on time?</b> — Build the plan around customer commitments, not just production targets"
+        ]
+      },
+      {
+        image: "images/newdatadecision1.png",
+        crumb: "KPI Dashboard",
+        paragraphs: [
+          "Daily Manufacturing KPI Dashboard:<b>From Data to Decisions</b>",
+          "A daily manufacturing KPI dashboard should not be just a collection of numbers.",
+          "<b>The real question is:</b>",
+          "What happened yesterday, why did it happen, and what action are we taking today?",
+          "A practical daily dashboard should connect the key dimensions of manufacturing performance:",
+          "<b>Safety</b> – Incidents, near misses, unsafe conditions",
+          "<b>OEE</b> – Availability × Performance × Quality",
+          "<b>Quality</b> – PPM, FPY, scrap, rework, customer complaints",
+          "<b>Deliver</b> – Plan vs Actual, schedule adherence, OTIF",
+          "<b>People</b> – Manpower availability, absenteeism, productivity",
+          "<b>Maintenance</b> – Downtime, MTBF, MTTR, breakdowns",
+          "<b>Cost</b> – Conversion cost, scrap cost, overtime, material losses",
+
+        ],
+        bullets: [
+          "<b>What is the gap?</b>-Target vs Actual.",
+          "<b>Where is the gap?</b>-Line, machine, product, shift, process or department.",
+          "<b>Why did it happen?</b>-Pareto of the major losses—not just the symptom.",
+          "<b>What is the action?</b>-Owner + action + due date + expected impact."
+        ]
+      },
+      {
+        image: "images/pexels-lex-ger-2021617-4294075 (2).jpg",
+        crumb: "AIAG'S 6 Core Tools",
+        paragraphs: [
+          "<b>AIAG’s 6 Core Tools: Turning Quality into a Competitive Advantage</b>",
+          "In today’s automotive industry, quality isn’t just about finding defects—it’s about preventing them before they happen.",
+          "When APQP, FMEA, MSA, SPC, Control Plans, and PPAP work together, organizations can move from <b> “detecting problems” to “preventing problems.”</b>",
+        ],
+        bullets: [
+          "<b>APQP – Advanced Product Quality Planning</b> <p> Creates a structured approach to planning quality from concept through production.</p>",
+          "<b>PPAP – Production Part Approval Process </b> <p> Provides evidence that the production process can consistently meet customer requirements.</p>",
+          "<b>FMEA – Failure Mode and Effects Analysis</b> <p> Identifies potential risks early and helps teams prioritize preventive actions.</p>",
+          "<b>MSA – Measurement System Analysis</b> <p> Ensures measurement systems are reliable, accurate, and capable of supporting sound decisions.</p>",
+          "<b>SPC – Statistical Process Control</b> <p> Uses data and statistical methods to monitor process performance and prevent variation.</p>",
+          "<b>Control Plan</b> <p>Defines how critical product and process characteristics will be controlled throughout production.</p>"
+
+        ]
+      },
+      {
+        image: "images/photo-1553413077-190dd305871c (2).jpg",
+        crumb: "Tier-2 Suppliers",
+        paragraphs: [
+          "<b>“How hard is it for automotive Tier-2 suppliers to streamline their operations?”</b> — it is quite challenging, but very achievable",
+          "Tier-2 suppliers sit between Tier-1 companies and deeper suppliers, and typically face pressure on <b> cost, quality, delivery, traceability, and flexibility</b> simultaneously."
+        ],
+        bullets: [
+          "<b>Fragmented operations</b> <p>Studies of Indian automotive supply chains specifically identify limited technology adoption and organizational constraints among Tier-2 suppliers.</p>",
+          /*subBullets: [
+            "Production data in Excel/paper",
+            "Separate systems for inventory, quality and production",
+            "Manual updates and delayed information",
+            "Different customer portals and reporting formats"
+          ]*/
+          "<b>Quality & traceability</b> <p> Tier-1 customers increasingly expect process traceability, automated inspection, real-time quality information and consistent process controls.</p>",
+          "<b>Sub-supplier dependency</b> <p>A Tier-2 company may itself depend on forging, heat treatment, plating, casting, machining or other subcontractors. If one of those suppliers fails, the Tier-2 supplier may not discover the problem until production is already affected.</p>",
+          "<b>Demand fluctuations</b> <p> Tier-2 suppliers have relatively little control over customer schedules. Demand fluctuations, supply fluctuations and the investment required for high-efficiency/JIT operations make optimization difficult for smaller suppliers.</p>",
+          "<b>Limited capital and skilled people</b> <p> Many Tier-2 businesses are SMEs, so replacing machines, implementing MES/ERP, installing automated inspection, and hiring digital/industrial-engineering talent can be difficult.</p>",
+
+        ],
+      },
+      {
+        image: "images/pexels-asphotography-106344.jpg",
+        crumb: "Dashboards & Analytics",
+        paragraphs: [
+          "Larch ERP gives leadership and shop-floor managers alike real-time dashboards built around the metrics that actually matter — production output, OEE, quality rejections, on-time delivery, and more.",
+          "Instead of digging through spreadsheets at month-end, you see trends as they form and can step in before a small issue becomes a big one."
+        ],
+        bullets: [
+          "Live dashboards for production, quality and OEE",
+          "Configurable views for management and shop floor",
+          "Faster identification of trends and outliers",
+          "Data you can act on the same day it's generated"
+        ]
+      },
+      {
+        image: "images/jit.png",
+        crumb: "JIT(Just-in-Time Invenetory Management System)",
+        paragraphs: [
+          "Larch ERP gives you complete visibility across your entire factory — from raw materials arriving at the dock to finished goods leaving for dispatch — all managed from one powerful platform.",
+          "Production planning, execution, quality checks and inventory movement are connected end-to-end, so every stage of the process is traceable and accountable."
+        ],
+        bullets: [
+          "End-to-end visibility, raw material to finished goods",
+          "Connected production planning and execution",
+          "Full traceability at every stage",
+          "One platform for the entire shop floor"
+        ]
+      }
+    ];
+
+    function getSlideId() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id'), 10);
+      return (isNaN(id) || id < 0 || id >= slideData.length) ? 0 : id;
+    }
+
+    function renderSlide() {
+      const id = getSlideId();
+      const s = slideData[id];
+
+      document.getElementById('sdImage').src = s.image;
+      document.getElementById('sdImage').alt = s.crumb;
+      document.getElementById('sdBadge').innerHTML = '';//s.badge;
+      document.getElementById('sdTitle').innerHTML = s.title;
+      document.getElementById('sdCrumb').innerHTML = s.crumb;
+
+      const contentEl = document.getElementById('sdContent');
+      let html = '<h4>Overview</h4>';
+      s.paragraphs.forEach(p => { html += `<p>${p}</p>`; });
+      html += '<h4>Key Highlights</h4><ul>';
+      s.bullets.forEach(b => { html += `<li>${b}</li>`; });
+      html += '</ul>';
+      contentEl.innerHTML = html;
+
+      document.title = s.crumb + " - LarchERP";
+
+      const grid = document.getElementById('sdOtherGrid');
+      grid.innerHTML = '';
+      slideData.forEach((other, i) => {
+        if (i === id) return;
+        const a = document.createElement('a');
+        a.className = 'cs-other-card';
+        a.href = `slide-details.html?id=${i}`;
+        a.innerHTML = `
+      <img src="${other.image}" alt="${other.crumb}">
+      <div class="cs-other-body">
+        <div class="cs-other-title">${other.crumb}</div>
+        <div class="cs-other-link">Read More &#8594;</div>
+      </div>`;
+        grid.appendChild(a);
+      });
+    }
+
+    renderSlide();
+  </script>
+</body>
+
+</html>
