@@ -89,5 +89,38 @@ function sendContactMail() {
     'Message:\n' + (message  || '–')
   );
 
-  window.location.href = 'mailto:sales@larch.in?subject=' + subject + '&body=' + body;
-}
+  window.location.href = 'mailto:sales@larch.in?subject=' + subject + '&body=' + body;}
+document.addEventListener("DOMContentLoaded", function () {
+
+    const cookiePopup = document.getElementById("cookiePopup");
+    const acceptCookies = document.getElementById("acceptCookies");
+    const declineCookies = document.getElementById("declineCookies");
+    const closeCookies = document.getElementById("closeCookies");
+
+    // Check if popup was already shown during this visit
+    const cookieShown = sessionStorage.getItem("cookieShown");
+
+    // Show only once during the current website session
+    if (!cookieShown) {
+        cookiePopup.style.display = "block";
+    }
+
+    // Accept
+    acceptCookies.addEventListener("click", function () {
+        cookiePopup.style.display = "none";
+        sessionStorage.setItem("cookieShown", "true");
+    });
+
+    // Decline
+    declineCookies.addEventListener("click", function () {
+        cookiePopup.style.display = "none";
+        sessionStorage.setItem("cookieShown", "true");
+    });
+
+    // Close
+    closeCookies.addEventListener("click", function () {
+        cookiePopup.style.display = "none";
+        sessionStorage.setItem("cookieShown", "true");
+    });
+
+});
