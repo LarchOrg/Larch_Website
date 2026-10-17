@@ -124,3 +124,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+const automotiveDropdown = document.getElementById("automotiveDropdown");
+const automotiveToggle = document.getElementById("automotiveToggle");
+
+automotiveToggle.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    automotiveDropdown.classList.toggle("active");
+
+});
+
+
+/* Close only when clicking outside */
+
+document.addEventListener("click", function (event) {
+
+    if (!automotiveDropdown.contains(event.target)) {
+
+        automotiveDropdown.classList.remove("active");
+
+    }
+
+});

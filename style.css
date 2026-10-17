@@ -56,7 +56,215 @@ nav.solid .nav-links a{color:var(--text)}
 .nav-links a:hover{color:var(--green-500)}
 .nav-cta{background:var(--green-500);color:#fff;border:none;padding:.55rem 1.5rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:100px;transition:all .25s}
 .nav-cta:hover{background:var(--green-600);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,139,87,.35)}
- 
+/* =================================
+   AUTOMOTIVE 5.0 DROPDOWN
+================================= */
+
+.nav-dropdown {
+    position: relative;
+}
+
+
+/* Automotive 5.0 button */
+
+.nav-dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    text-decoration: none;
+    color: inherit;
+
+    cursor: pointer;
+
+    padding: 4px 0;
+
+    transition: color 0.2s ease;
+    position:relative;
+}
+/* =================================
+   INDUSTRIAL INSIGHTS DATA
+================================= */
+
+.insight-data {
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 10px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    color: #494747;
+
+    max-width: 650px;
+    
+}
+.insight-data .read-more {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+/* Read More - hidden by default */
+.insight-data .read-more {
+    color: #2563eb;
+    font-weight: 500;
+    
+
+    opacity: 0;
+    visibility: hidden;
+
+    margin-left: 5px;
+
+    transition: opacity 0.2s ease;
+}
+.ems-item .read-more {
+  display: block;
+  white-space: nowrap;
+
+}
+
+
+/* Show Read More when hovering the dropdown item */
+.dropdown-menu li a:hover .insight-data .read-more {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrow */
+
+.dropdown-arrow {
+    font-size: 12px;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Highlight Automotive 5.0
+   when dropdown is open */
+
+.nav-dropdown.active .nav-dropdown-link {
+    color: #2e8b57;
+}
+
+
+/* Rotate arrow */
+
+.nav-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =================================
+   DROPDOWN BOX
+================================= */
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(8px);
+}
+.dropdown-menu { 
+    opacity: 0;
+    position: absolute;
+
+    top: calc(100% + 12px);
+    left: 163%;
+
+    width: 735px;
+
+    transform: translateX(-50%) translateY(8px);
+
+    padding: 8px 0;
+    margin: 0;
+
+    list-style: none;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 9999;
+}
+
+
+/* Open dropdown */
+.nav-dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px;
+}
+.nav-dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(8px);
+}
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(8px);
+}
+
+/* =================================
+   DROPDOWN ITEMS
+================================= */
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+
+.dropdown-menu li a {
+    display: block;
+
+    padding: 12px 18px;
+
+    color: #333333;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    border-radius: 6px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+
+/* Hover highlight */
+
+.dropdown-menu li a:hover {
+    background: #f1f6f3;
+
+    color: #2e8b57;
+
+    padding-left: 23px;
+}
 /* ─── HERO ─── */
 .hero{position:relative;height:100vh;min-height:650px;overflow:hidden;display:flex;align-items:center}
 .hero-slides{position:absolute;inset:0;display:flex;transition:transform .9s cubic-bezier(.77,0,.175,1)}
@@ -228,7 +436,288 @@ section{padding:7rem 4rem}
 .btn-green:hover{background:var(--green-600);transform:translateY(-2px);box-shadow:0 8px 24px rgba(46,139,87,.3)}
 .btn-green-outline{background:transparent;color:var(--green-600);border:2px solid var(--green-500);padding:.8rem 2rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:700;letter-spacing:.04em;border-radius:100px;cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem}
 .btn-green-outline:hover{background:var(--green-50)}
- 
+ /* ───────────── LEADERSHIP TEAM ───────────── */
+
+.leadership-sec {
+    padding: 110px 6%;
+    background: #f8f7f4;
+}
+
+.leadership-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+
+/* HEADER */
+
+.leadership-header {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.section-tag {
+    display: inline-block;
+    margin-bottom: 16px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #2e8b57;
+}
+
+.leadership-header h2 {
+    margin: 0 0 20px;
+
+    font-family: "Fraunces", serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 500;
+    line-height: 1.05;
+
+    color: #18221e;
+}
+
+.leadership-header h2 span {
+    color: #2e8b57;
+}
+
+.leadership-header p {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+
+    color: #65706a;
+}
+
+
+/* GRID */
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 22px;
+}
+
+
+/* MANAGER CARD */
+
+.leader-card {
+    grid-row: span 2;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #18221e;
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+.leader-image {
+    height: 360px;
+    overflow: hidden;
+}
+
+.leader-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.leader-card:hover .leader-image img {
+    transform: scale(1.04);
+}
+
+.leader-content {
+    padding: 32px;
+}
+
+.leader-role,
+.team-role {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.leader-role {
+    color: #78b995;
+}
+
+.leader-content h3 {
+    margin: 0 0 15px;
+
+    font-family: "Fraunces", serif;
+    font-size: 32px;
+    font-weight: 500;
+
+    color: #ffffff;
+}
+
+.leader-content p {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.8;
+
+    color: #c7d0ca;
+}
+
+.leader-line {
+    width: 45px;
+    height: 1px;
+
+    margin: 25px 0 15px;
+
+    background: #78b995;
+}
+
+.leader-focus {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 11px;
+
+    color: #aab8af;
+}
+
+
+/* TEAM CARDS */
+
+.team-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7e4;
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(24, 34, 30, 0.08);
+}
+
+.team-image {
+    height: 210px;
+    overflow: hidden;
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-image img {
+    transform: scale(1.04);
+}
+
+.team-content {
+    padding: 23px;
+}
+
+.team-role {
+    color: #2e8b57;
+}
+
+.team-content h3 {
+    margin: 0 0 10px;
+
+    font-family: "Fraunces", serif;
+    font-size: 24px;
+    font-weight: 500;
+
+    color: #18221e;
+}
+
+.team-content p {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+
+    color: #69736d;
+}
+
+
+/* ───────────── RESPONSIVE ───────────── */
+
+@media (max-width: 1000px) {
+
+    .leadership-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .leader-card {
+        grid-column: span 2;
+        grid-row: auto;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .leader-image {
+        height: 100%;
+        min-height: 350px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .leadership-sec {
+        padding: 75px 5%;
+    }
+
+    .leadership-header {
+        margin-bottom: 35px;
+    }
+
+    .leadership-header h2 {
+        font-size: 42px;
+    }
+
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .leader-card {
+        grid-column: auto;
+
+        display: flex;
+    }
+
+    .leader-image {
+        height: 300px;
+        min-height: auto;
+    }
+
+    .team-image {
+        height: 260px;
+    }
+
+}
 /* ─── FEATURES (Product Features) ─── */
 .feat-sec{background:var(--off)}
 .feat-header{text-align:center;margin-bottom:4rem}
